@@ -1,5 +1,6 @@
 package com.nnk.springboot.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,15 +12,34 @@ import jakarta.persistence.Table;
 public class Rating {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Integer id;
+	@Column(name = "id")
+	Integer ratingId;
 	
 	String moodysRating;
+	
 	String sandPRating;
-	public Integer getId() {
-		return id;
+	
+	String fitchRating;
+	
+	Integer orderNumber;
+	
+
+	public Rating() {
+		
 	}
-	public void setId(Integer id) {
-		this.id = id;
+	
+	public Rating(String moodysRating, String sandPRating, String fitchRating, Integer orderNumber) {
+		super();
+		this.moodysRating = moodysRating;
+		this.sandPRating = sandPRating;
+		this.fitchRating = fitchRating;
+		this.orderNumber = orderNumber;
+	}
+	public Integer getRatingId() {
+		return ratingId;
+	}
+	public void setRatingId(Integer id) {
+		this.ratingId = id;
 	}
 	public String getMoodysRating() {
 		return moodysRating;
@@ -45,6 +65,5 @@ public class Rating {
 	public void setOrderNumber(Integer orderNumber) {
 		this.orderNumber = orderNumber;
 	}
-	String fitchRating;
-	Integer orderNumber;
+
 }
