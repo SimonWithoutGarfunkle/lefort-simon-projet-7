@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.nnk.springboot.domain.Rating;
+import com.nnk.springboot.exceptions.RatingException;
 import com.nnk.springboot.repositories.RatingRepository;
 
 /**
@@ -65,7 +66,7 @@ public class RatingService {
 	 * @return saved rating
 	 */
 	public Rating addRating(Rating rating) {
-		logger.info("call updateRating");	
+		logger.info("call addRating");	
 		return ratingRepository.save(rating);
 	}
 	
@@ -92,10 +93,19 @@ public class RatingService {
 		
 	}
 	
-	
-	
-	
-	
+	public void validateRating(Rating rating) {
+        validateIntegerInRange(rating.getMoodysRating(), "Moody Rating", 0, 10);
+        validateIntegerInRange(rating.getSandPRating(), "S&P Rating", 0, 10);
+        validateIntegerInRange(rating.getFitchRating(), "Fitch Rating", 0, 10);
+        validateIntegerInRange(rating.getOrderNumber(), "Order Number", 0, 1000);
+    }
+
+    private void validateIntegerInRange(Integer value, String fieldName, int min, int max) {
+        if (value == null || value < min || value > max) {
+            throw new RatingException(fieldName + " must be an integer between " + min + " and " + max + ".");
+        }
+    }
+
 	
 
 }

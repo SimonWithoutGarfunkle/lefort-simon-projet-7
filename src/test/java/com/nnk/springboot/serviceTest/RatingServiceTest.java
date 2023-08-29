@@ -34,7 +34,7 @@ public class RatingServiceTest {
         MockitoAnnotations.openMocks(this);
         rating = new Rating();
         rating.setRatingId(1);
-        rating.setFitchRating("New Value");
+        rating.setFitchRating(9);
         when(ratingRepository.save(any(Rating.class))).thenReturn(rating);
     }
     
@@ -86,7 +86,7 @@ public class RatingServiceTest {
 
         //Assert
         verify(ratingRepository).save(rating);
-        assertEquals("New Value", updatedRating.getFitchRating());
+        assertEquals(9, updatedRating.getFitchRating());
         
     }
 

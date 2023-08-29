@@ -1,10 +1,13 @@
 package com.nnk.springboot.controllers;
 
 import com.nnk.springboot.domain.Rating;
+import com.nnk.springboot.exceptions.RatingException;
 import com.nnk.springboot.service.RatingService;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -23,6 +26,8 @@ public class RatingController {
 	
     @Autowired
     private RatingService ratingService;
+    
+    private static Logger logger = LoggerFactory.getLogger(RatingController.class);
 
     @RequestMapping("/rating/list")
     public String home(Model model) {
@@ -42,27 +47,42 @@ public class RatingController {
 
     @PostMapping("/rating/validate")
     public String validate(@Valid Rating rating, BindingResult result, Model model) {
+    	try {
+    		ratingService.validateRating(rating);
+    	} catch (RatingException e) {
+    		logger.error(e.getMessage());
+    		model.addAttribute("errorMessage", e.getMessage());
+    		return "/rating/add";
+    	}
+    	
     	ratingService.addRating(rating);
-        // TODO: check data valid and save to db, after saving return Rating list
         return "redirect:/rating/list";
     }
 
-    @GetMapping("/rating/update/{id}")
-    public String showUpdateForm(@PathVariable("id") Integer id, Model model) {
-        // TODO: get Rating by Id and to model then show to the form
+    @GetMapping("/rating/update/{ratingId}")
+    public String showUpdateForm(@PathVariable("ratingId") Integer ratingId, Model model) {
+        Rating ratingToUpdate = ratingService.getRatingById(ratingId);
+        model.addAttribute("rating", ratingToUpdate);
         return "rating/update";
     }
 
-    @PostMapping("/rating/update/{id}")
-    public String updateRating(@PathVariable("id") Integer id, @Valid Rating rating,
+    @PostMapping("/rating/update/{ratingId}")
+    public String updateRating(@PathVariable("ratingId") Integer ratingId, @Valid Rating rating,
                              BindingResult result, Model model) {
-        // TODO: check required fields, if valid call service to update Rating and return Rating list
+    	try {
+    		ratingService.validateRating(rating);
+    	} catch (RatingException e) {
+    		logger.error(e.getMessage());
+    		model.addAttribute("errorMessage", e.getMessage());
+    		return "rating/update";
+    	}
+    	ratingService.updateRating(rating);
         return "redirect:/rating/list";
     }
 
     @GetMapping("/rating/delete/{id}")
     public String deleteRating(@PathVariable("id") Integer id, Model model) {
-        // TODO: Find Rating by Id and delete the Rating, return to Rating list
+        ratingService.deleteRating(id);
         return "redirect:/rating/list";
     }
 }

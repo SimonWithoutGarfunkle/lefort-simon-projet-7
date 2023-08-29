@@ -15,11 +15,11 @@ public class Rating {
 	@Column(name = "id")
 	Integer ratingId;
 	
-	String moodysRating;
+	Integer moodysRating;
 	
-	String sandPRating;
+	Integer sandPRating;
 	
-	String fitchRating;
+	Integer fitchRating;
 	
 	Integer orderNumber;
 	
@@ -28,7 +28,7 @@ public class Rating {
 		
 	}
 	
-	public Rating(String moodysRating, String sandPRating, String fitchRating, Integer orderNumber) {
+	public Rating(Integer moodysRating, Integer sandPRating, Integer fitchRating, Integer orderNumber) {
 		super();
 		this.moodysRating = moodysRating;
 		this.sandPRating = sandPRating;
@@ -41,22 +41,22 @@ public class Rating {
 	public void setRatingId(Integer id) {
 		this.ratingId = id;
 	}
-	public String getMoodysRating() {
+	public Integer getMoodysRating() {
 		return moodysRating;
 	}
-	public void setMoodysRating(String moodysRating) {
+	public void setMoodysRating(Integer moodysRating) {
 		this.moodysRating = moodysRating;
 	}
-	public String getSandPRating() {
+	public Integer getSandPRating() {
 		return sandPRating;
 	}
-	public void setSandPRating(String sandPRating) {
+	public void setSandPRating(Integer sandPRating) {
 		this.sandPRating = sandPRating;
 	}
-	public String getFitchRating() {
+	public Integer getFitchRating() {
 		return fitchRating;
 	}
-	public void setFitchRating(String fitchRating) {
+	public void setFitchRating(Integer fitchRating) {
 		this.fitchRating = fitchRating;
 	}
 	public Integer getOrderNumber() {

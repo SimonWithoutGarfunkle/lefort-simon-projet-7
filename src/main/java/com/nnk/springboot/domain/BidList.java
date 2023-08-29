@@ -16,6 +16,7 @@ public class BidList {
 	Integer BidListId;
 	
 	String account;
+	
 	public Integer getBidListId() {
 		return BidListId;
 	}
