@@ -20,6 +20,23 @@ public class Trade {
 	String type;
 	Double buyQuantity;
 	Double sellQuantity;
+	Double buyPrice;
+	Double sellPrice;
+	String benchmark;
+	Timestamp tradeDate;
+	String security;
+	String status;
+	String trader;
+	String book;
+	String creationName;
+	Timestamp creationDate;
+	String revisionName;
+	Timestamp revisionDate;
+	String dealName;
+	String dealType;
+	String sourceListId;
+	String side;
+	
 	public Integer getTradeId() {
 		return tradeId;
 	}
@@ -146,21 +163,6 @@ public class Trade {
 	public void setSide(String side) {
 		this.side = side;
 	}
-	Double buyPrice;
-	Double sellPrice;
-	String benchmark;
-	Timestamp tradeDate;
-	String security;
-	String status;
-	String trader;
-	String book;
-	String creationName;
-	Timestamp creationDate;
-	String revisionName;
-	Timestamp revisionDate;
-	String dealName;
-	String dealType;
-	String sourceListId;
-	String side;
+
 
 }

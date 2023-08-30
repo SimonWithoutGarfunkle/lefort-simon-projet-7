@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RatingController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">spring-boot-skeleton</a> &gt; <a href="index.source.html" class="el_package">com.nnk.springboot.controllers</a> &gt; <span class="el_source">RatingController.java</span></div><h1>RatingController.java</h1><pre class="source lang-java linenums">package com.nnk.springboot.controllers;
+
+import com.nnk.springboot.domain.Rating;
+import com.nnk.springboot.exceptions.RatingException;
+import com.nnk.springboot.service.RatingService;
+
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import jakarta.validation.Valid;
+
+@Controller
+<span class="fc" id="L25">public class RatingController {</span>
+	
+    @Autowired
+    private RatingService ratingService;
+    
+<span class="fc" id="L30">    private static Logger logger = LoggerFactory.getLogger(RatingController.class);</span>
+
+    @RequestMapping(&quot;/rating/list&quot;)
+    public String home(Model model) {
+<span class="nc" id="L34">        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();</span>
+<span class="nc" id="L35">        String remoteUser = authentication.getName();</span>
+<span class="nc" id="L36">        model.addAttribute(&quot;remoteUser&quot;, remoteUser);</span>
+    	
+<span class="nc" id="L38">    	List&lt;Rating&gt; ratings = ratingService.getAllRatings();</span>
+<span class="nc" id="L39">        model.addAttribute(&quot;ratings&quot;, ratings);</span>
+<span class="nc" id="L40">        return &quot;rating/list&quot;;</span>
+    }
+
+    @GetMapping(&quot;/rating/add&quot;)
+    public String addRatingForm(Rating rating) {
+<span class="nc" id="L45">        return &quot;rating/add&quot;;</span>
+    }
+
+    @PostMapping(&quot;/rating/validate&quot;)
+    public String validate(@Valid Rating rating, BindingResult result, Model model) {
+    	try {
+<span class="nc" id="L51">    		ratingService.validateRating(rating);</span>
+<span class="nc" id="L52">    	} catch (RatingException e) {</span>
+<span class="nc" id="L53">    		logger.error(e.getMessage());</span>
+<span class="nc" id="L54">    		model.addAttribute(&quot;errorMessage&quot;, e.getMessage());</span>
+<span class="nc" id="L55">    		return &quot;/rating/add&quot;;</span>
+<span class="nc" id="L56">    	}</span>
+    	
+<span class="nc" id="L58">    	ratingService.addRating(rating);</span>
+<span class="nc" id="L59">        return &quot;redirect:/rating/list&quot;;</span>
+    }
+
+    @GetMapping(&quot;/rating/update/{ratingId}&quot;)
+    public String showUpdateForm(@PathVariable(&quot;ratingId&quot;) Integer ratingId, Model model) {
+<span class="nc" id="L64">        Rating ratingToUpdate = ratingService.getRatingById(ratingId);</span>
+<span class="nc" id="L65">        model.addAttribute(&quot;rating&quot;, ratingToUpdate);</span>
+<span class="nc" id="L66">        return &quot;rating/update&quot;;</span>
+    }
+
+    @PostMapping(&quot;/rating/update/{ratingId}&quot;)
+    public String updateRating(@PathVariable(&quot;ratingId&quot;) Integer ratingId, @Valid Rating rating,
+                             BindingResult result, Model model) {
+    	try {
+<span class="nc" id="L73">    		ratingService.validateRating(rating);</span>
+<span class="nc" id="L74">    	} catch (RatingException e) {</span>
+<span class="nc" id="L75">    		logger.error(e.getMessage());</span>
+<span class="nc" id="L76">    		model.addAttribute(&quot;errorMessage&quot;, e.getMessage());</span>
+<span class="nc" id="L77">    		return &quot;rating/update&quot;;</span>
+<span class="nc" id="L78">    	}</span>
+<span class="nc" id="L79">    	ratingService.updateRating(rating);</span>
+<span class="nc" id="L80">        return &quot;redirect:/rating/list&quot;;</span>
+    }
+
+    @GetMapping(&quot;/rating/delete/{id}&quot;)
+    public String deleteRating(@PathVariable(&quot;id&quot;) Integer id, Model model) {
+<span class="nc" id="L85">        ratingService.deleteRating(id);</span>
+<span class="nc" id="L86">        return &quot;redirect:/rating/list&quot;;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

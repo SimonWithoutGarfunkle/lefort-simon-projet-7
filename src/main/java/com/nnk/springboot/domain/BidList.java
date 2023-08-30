@@ -2,6 +2,7 @@ package com.nnk.springboot.domain;
 
 import java.sql.Timestamp;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,9 +14,31 @@ import jakarta.persistence.Table;
 public class BidList {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	Integer BidListId;
 	
 	String account;
+	
+	String type;
+	Double bidQuantity;
+	Double askQuantity;
+	Double bid;
+	Double ask;
+	String benchmark;
+	Timestamp bidListDate;
+	String commentary;
+	String security;
+	String status;
+	String trader;
+	String book;
+	String creationName;
+	Timestamp creationDate;
+	String revisionName;
+	Timestamp revisionDate;
+	String dealName;
+	String dealType;
+	String sourceListId;
+	String side;
 	
 	public Integer getBidListId() {
 		return BidListId;
@@ -149,25 +172,6 @@ public class BidList {
 	public void setSide(String side) {
 		this.side = side;
 	}
-	String type;
-	Double bidQuantity;
-	Double askQuantity;
-	Double bid;
-	Double ask;
-	String benchmark;
-	Timestamp bidListDate;
-	String commentary;
-	String security;
-	String status;
-	String trader;
-	String book;
-	String creationName;
-	Timestamp creationDate;
-	String revisionName;
-	Timestamp revisionDate;
-	String dealName;
-	String dealType;
-	String sourceListId;
-	String side;
+
 
 }

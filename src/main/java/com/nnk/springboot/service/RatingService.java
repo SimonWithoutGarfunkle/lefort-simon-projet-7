@@ -93,6 +93,11 @@ public class RatingService {
 		
 	}
 	
+	/**
+	 * Call the data validation method for every attribute of the rating
+	 * 
+	 * @param rating to validate
+	 */
 	public void validateRating(Rating rating) {
         validateIntegerInRange(rating.getMoodysRating(), "Moody Rating", 0, 10);
         validateIntegerInRange(rating.getSandPRating(), "S&P Rating", 0, 10);
@@ -100,7 +105,15 @@ public class RatingService {
         validateIntegerInRange(rating.getOrderNumber(), "Order Number", 0, 1000);
     }
 
-    private void validateIntegerInRange(Integer value, String fieldName, int min, int max) {
+    /**
+     * Check the data validity
+     * 
+     * @param value to test
+     * @param fieldName
+     * @param min integer value accepted
+     * @param max integer value accepted
+     */
+	private void validateIntegerInRange(Integer value, String fieldName, int min, int max) {
         if (value == null || value < min || value > max) {
             throw new RatingException(fieldName + " must be an integer between " + min + " and " + max + ".");
         }

@@ -14,9 +14,11 @@ C:\Users\simon\eclipse-workspace\Poseiden-skeleton\src\main\java\com\nnk\springb
 C:\Users\simon\eclipse-workspace\Poseiden-skeleton\src\main\java\com\nnk\springboot\repositories\RuleNameRepository.java
 C:\Users\simon\eclipse-workspace\Poseiden-skeleton\src\main\java\com\nnk\springboot\controllers\HomeController.java
 C:\Users\simon\eclipse-workspace\Poseiden-skeleton\src\main\java\com\nnk\springboot\repositories\UserRepository.java
+C:\Users\simon\eclipse-workspace\Poseiden-skeleton\src\main\java\com\nnk\springboot\exceptions\RuleNameException.java
 C:\Users\simon\eclipse-workspace\Poseiden-skeleton\src\main\java\com\nnk\springboot\service\MyUserDetailsService.java
 C:\Users\simon\eclipse-workspace\Poseiden-skeleton\src\main\java\com\nnk\springboot\repositories\BidListRepository.java
 C:\Users\simon\eclipse-workspace\Poseiden-skeleton\src\main\java\com\nnk\springboot\exceptions\RatingException.java
+C:\Users\simon\eclipse-workspace\Poseiden-skeleton\src\main\java\com\nnk\springboot\service\RuleNameService.java
 C:\Users\simon\eclipse-workspace\Poseiden-skeleton\src\main\java\com\nnk\springboot\repositories\TradeRepository.java
 C:\Users\simon\eclipse-workspace\Poseiden-skeleton\src\main\java\com\nnk\springboot\domain\CurvePoint.java
 C:\Users\simon\eclipse-workspace\Poseiden-skeleton\src\main\java\com\nnk\springboot\controllers\UserController.java

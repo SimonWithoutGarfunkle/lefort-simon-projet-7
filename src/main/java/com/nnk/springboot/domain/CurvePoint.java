@@ -2,6 +2,7 @@ package com.nnk.springboot.domain;
 
 import java.sql.Timestamp;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,14 +14,21 @@ import jakarta.persistence.Table;
 public class CurvePoint {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Integer id;
+	@Column(name = "id")
+	Integer curvePointId;
 	
 	Integer curveId;
-	public Integer getId() {
-		return id;
+	
+	Timestamp asOfDate;
+	Double term;
+	Double value;
+	Timestamp creationDate;
+	
+	public Integer getCurvePointId() {
+		return curvePointId;
 	}
-	public void setId(Integer id) {
-		this.id = id;
+	public void setCurvePointId(Integer id) {
+		this.curvePointId = id;
 	}
 	public Integer getCurveId() {
 		return curveId;
@@ -52,8 +60,5 @@ public class CurvePoint {
 	public void setCreationDate(Timestamp creationDate) {
 		this.creationDate = creationDate;
 	}
-	Timestamp asOfDate;
-	Double term;
-	Double value;
-	Timestamp creationDate;
+
 }

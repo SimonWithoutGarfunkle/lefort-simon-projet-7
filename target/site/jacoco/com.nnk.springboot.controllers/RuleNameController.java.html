@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RuleNameController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">spring-boot-skeleton</a> &gt; <a href="index.source.html" class="el_package">com.nnk.springboot.controllers</a> &gt; <span class="el_source">RuleNameController.java</span></div><h1>RuleNameController.java</h1><pre class="source lang-java linenums">package com.nnk.springboot.controllers;
+
+import com.nnk.springboot.domain.RuleName;
+import com.nnk.springboot.exceptions.RuleNameException;
+import com.nnk.springboot.service.RuleNameService;
+
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import jakarta.validation.Valid;
+
+@Controller
+<span class="fc" id="L25">public class RuleNameController {</span>
+	
+    @Autowired
+    private RuleNameService ruleNameService;
+    
+<span class="fc" id="L30">    private static Logger logger = LoggerFactory.getLogger(RuleNameController.class);</span>
+
+    @RequestMapping(&quot;/ruleName/list&quot;)
+    public String home(Model model) {
+<span class="nc" id="L34">    	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();</span>
+<span class="nc" id="L35">        String remoteUser = authentication.getName();</span>
+<span class="nc" id="L36">        model.addAttribute(&quot;remoteUser&quot;, remoteUser);</span>
+        
+<span class="nc" id="L38">        List&lt;RuleName&gt; rules = ruleNameService.getAllRules();</span>
+<span class="nc" id="L39">        model.addAttribute(&quot;ruleNames&quot;, rules);</span>
+<span class="nc" id="L40">        return &quot;ruleName/list&quot;;</span>
+    }
+
+    @GetMapping(&quot;/ruleName/add&quot;)
+    public String addRuleForm(RuleName ruleName) {
+<span class="nc" id="L45">        return &quot;ruleName/add&quot;;</span>
+    }
+
+    @PostMapping(&quot;/ruleName/validate&quot;)
+    public String validate(@Valid RuleName ruleName, BindingResult result, Model model) {
+        try {
+<span class="nc" id="L51">        	ruleNameService.validateRuleName(ruleName);</span>
+<span class="nc" id="L52">        } catch (RuleNameException e) {</span>
+<span class="nc" id="L53">        	logger.error(e.getMessage());</span>
+<span class="nc" id="L54">    		model.addAttribute(&quot;errorMessage&quot;, e.getMessage());</span>
+<span class="nc" id="L55">    		return &quot;ruleName/add&quot;;</span>
+        	
+<span class="nc" id="L57">        }</span>
+        
+<span class="nc" id="L59">        ruleNameService.addRuleName(ruleName);</span>
+<span class="nc" id="L60">        return &quot;redirect:/ruleName/list&quot;;</span>
+    }
+
+    @GetMapping(&quot;/ruleName/update/{id}&quot;)
+    public String showUpdateForm(@PathVariable(&quot;id&quot;) Integer id, Model model) {
+<span class="nc" id="L65">        RuleName ruleToUpdate = ruleNameService.getRuleNameById(id);</span>
+<span class="nc" id="L66">        model.addAttribute(&quot;ruleName&quot;, ruleToUpdate);</span>
+<span class="nc" id="L67">        return &quot;ruleName/update&quot;;</span>
+    }
+
+    @PostMapping(&quot;/ruleName/update/{id}&quot;)
+    public String updateRuleName(@PathVariable(&quot;id&quot;) Integer id, @Valid RuleName ruleName,
+                             BindingResult result, Model model) {
+    	try {
+<span class="nc" id="L74">        	ruleNameService.validateRuleName(ruleName);</span>
+<span class="nc" id="L75">        } catch (RuleNameException e) {</span>
+<span class="nc" id="L76">        	logger.error(e.getMessage());</span>
+<span class="nc" id="L77">    		model.addAttribute(&quot;errorMessage&quot;, e.getMessage());</span>
+<span class="nc" id="L78">    		return &quot;ruleName/update&quot;;</span>
+        	
+<span class="nc" id="L80">        }</span>
+<span class="nc" id="L81">        ruleNameService.updateRuleName(ruleName);</span>
+<span class="nc" id="L82">    	return &quot;redirect:/ruleName/list&quot;;</span>
+    }
+
+    @GetMapping(&quot;/ruleName/delete/{id}&quot;)
+    public String deleteRuleName(@PathVariable(&quot;id&quot;) Integer id, Model model) {
+<span class="nc" id="L87">        ruleNameService.deleteRuleName(id);</span>
+<span class="nc" id="L88">        return &quot;redirect:/ruleName/list&quot;;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

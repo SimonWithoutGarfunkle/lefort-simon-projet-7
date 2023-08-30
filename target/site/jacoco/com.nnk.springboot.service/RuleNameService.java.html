@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RuleNameService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">spring-boot-skeleton</a> &gt; <a href="index.source.html" class="el_package">com.nnk.springboot.service</a> &gt; <span class="el_source">RuleNameService.java</span></div><h1>RuleNameService.java</h1><pre class="source lang-java linenums">package com.nnk.springboot.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.nnk.springboot.domain.RuleName;
+import com.nnk.springboot.exceptions.RuleNameException;
+import com.nnk.springboot.repositories.RuleNameRepository;
+
+@Service
+<span class="fc" id="L16">public class RuleNameService {</span>
+	
+	@Autowired
+	private RuleNameRepository ruleNameRepository;
+	
+<span class="fc" id="L21">	private static Logger logger = LoggerFactory.getLogger(RuleNameService.class);</span>
+	
+	/**
+	 * Extract all Rules from the Databse
+	 * 
+	 * @return List of all Rules from the Databse
+	 */
+	public List&lt;RuleName&gt; getAllRules() {
+<span class="nc" id="L29">		logger.info(&quot;call getAllRule&quot;);</span>
+<span class="nc" id="L30">		return ruleNameRepository.findAll();</span>
+	}
+	
+	public RuleName convertOptionalToRule(Optional&lt;RuleName&gt; option) {
+<span class="nc" id="L34">		logger.info(&quot;call convertOptionalToRule&quot;);</span>
+<span class="nc" id="L35">		return option.orElse(null);</span>
+		
+	}
+	
+	public RuleName getRuleNameById(Integer id) {
+<span class="nc" id="L40">		logger.info(&quot;call getRuleNameById&quot;);		</span>
+<span class="nc" id="L41">		return convertOptionalToRule(ruleNameRepository.findById(id));		</span>
+	}
+	
+	/**
+	 * Add RuleName to DB
+	 * 
+	 * @param ruleName
+	 * @return saved ruleName
+	 */
+	public RuleName addRuleName(RuleName ruleName) {
+<span class="nc" id="L51">		logger.info(&quot;call addRuleName&quot;);	</span>
+<span class="nc" id="L52">		return ruleNameRepository.save(ruleName);</span>
+	}
+	
+	
+	/**
+	 * Update an existing RuleName
+	 * 
+	 * @param RuleName
+	 * @return updated RuleName
+	 */
+	public RuleName updateRuleName(RuleName ruleName) {
+<span class="nc" id="L63">		logger.info(&quot;call updateRating&quot;);	</span>
+<span class="nc" id="L64">		return ruleNameRepository.save(ruleName);</span>
+	}
+	
+	/**
+	 * Delete the RuleName corresponding to the id
+	 * 
+	 * @param id of the RuleName to delete
+	 */
+	public void deleteRuleName(Integer id) {
+<span class="nc" id="L73">		logger.info(&quot;call deleteRuleName&quot;);	</span>
+<span class="nc" id="L74">		ruleNameRepository.deleteById(id);</span>
+		
+<span class="nc" id="L76">	}</span>
+	
+	
+	/**
+	 * Call the data validation method for the restricted attributes of the RuleName.
+	 * Here only Name and Json are mandatory with at least 2 characters
+	 * 
+	 * @param ruleName to validate
+	 */
+	public void validateRuleName(RuleName ruleName) {
+<span class="nc" id="L86">		validateStringRuleName(ruleName.getName(),&quot;Name&quot;, 2);</span>
+<span class="nc" id="L87">		validateStringRuleName(ruleName.getJson(),&quot;Json&quot;, 2);</span>
+				
+<span class="nc" id="L89">	}</span>
+	
+	/**
+	 * Check the data validity 
+	 * 
+	 * @param value to test
+	 * @param fieldName
+	 * @param min string lenghth requiered
+	 */
+	private void validateStringRuleName(String value, String fieldName, int min) {
+<span class="nc bnc" id="L99" title="All 4 branches missed.">		if (value == null || value.trim().length()&lt;min ) {</span>
+<span class="nc" id="L100">			throw new RuleNameException(fieldName + &quot; must be a text of at least &quot; + min + &quot; characters.&quot;);</span>
+		}				
+<span class="nc" id="L102">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
