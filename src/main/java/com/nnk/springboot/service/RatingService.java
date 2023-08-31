@@ -44,8 +44,7 @@ public class RatingService {
 	 */
 	public Rating convertOptionalToRating(Optional<Rating> option) {
 		logger.info("call convertOptionalToRating");
-		return option.orElse(null);
-		
+		return option.orElse(null);		
 	}
 	
 	/**

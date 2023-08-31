@@ -23,19 +23,31 @@ public class RuleNameService {
 	/**
 	 * Extract all Rules from the Databse
 	 * 
-	 * @return List of all Rules from the Databse
+	 * @return List of all Rules from the Database
 	 */
 	public List<RuleName> getAllRules() {
 		logger.info("call getAllRule");
 		return ruleNameRepository.findAll();
 	}
 	
+	/**
+	 * Convert Optional<RuleName> to RuleName
+	 * 
+	 * @param option to convert
+	 * @return RuleName or null
+	 */
 	public RuleName convertOptionalToRule(Optional<RuleName> option) {
 		logger.info("call convertOptionalToRule");
 		return option.orElse(null);
 		
 	}
 	
+	/**
+	 * Extract the RuleName corresponding to the Id from DB
+	 * 
+	 * @param id of the RuleName
+	 * @return RuleName
+	 */
 	public RuleName getRuleNameById(Integer id) {
 		logger.info("call getRuleNameById");		
 		return convertOptionalToRule(ruleNameRepository.findById(id));		
@@ -60,7 +72,7 @@ public class RuleNameService {
 	 * @return updated RuleName
 	 */
 	public RuleName updateRuleName(RuleName ruleName) {
-		logger.info("call updateRating");	
+		logger.info("call updateRuleName");	
 		return ruleNameRepository.save(ruleName);
 	}
 	
@@ -71,8 +83,7 @@ public class RuleNameService {
 	 */
 	public void deleteRuleName(Integer id) {
 		logger.info("call deleteRuleName");	
-		ruleNameRepository.deleteById(id);
-		
+		ruleNameRepository.deleteById(id);		
 	}
 	
 	

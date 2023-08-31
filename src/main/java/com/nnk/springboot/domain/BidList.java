@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 public class BidList {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name = "bid_list_id")
 	Integer BidListId;
 	
 	String account;
@@ -40,6 +40,25 @@ public class BidList {
 	String sourceListId;
 	String side;
 	
+	
+	
+	public BidList() {
+		super();
+	}
+	
+	
+	
+	
+	public BidList(String account, String type, Double bidQuantity) {
+		super();
+		this.account = account;
+		this.type = type;
+		this.bidQuantity = bidQuantity;
+	}
+
+
+
+
 	public Integer getBidListId() {
 		return BidListId;
 	}

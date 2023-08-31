@@ -32,8 +32,8 @@ import com.nnk.springboot.repositories.RatingRepository;
 	 * @return List of all ratings from the DataBase
 	 */
 	public List&lt;Rating&gt; getAllRatings() {
-<span class="nc" id="L35">		logger.info(&quot;call getAllRatings&quot;);</span>
-<span class="nc" id="L36">		return ratingRepository.findAll();</span>
+<span class="fc" id="L35">		logger.info(&quot;call getAllRatings&quot;);</span>
+<span class="fc" id="L36">		return ratingRepository.findAll();</span>
 	}
 	
 	/**
@@ -44,8 +44,7 @@ import com.nnk.springboot.repositories.RatingRepository;
 	 */
 	public Rating convertOptionalToRating(Optional&lt;Rating&gt; option) {
 <span class="fc" id="L46">		logger.info(&quot;call convertOptionalToRating&quot;);</span>
-<span class="fc" id="L47">		return option.orElse(null);</span>
-		
+<span class="fc" id="L47">		return option.orElse(null);		</span>
 	}
 	
 	/**
@@ -55,8 +54,8 @@ import com.nnk.springboot.repositories.RatingRepository;
 	 * @return Rating
 	 */
 	public Rating getRatingById(Integer id) {
-<span class="fc" id="L58">		logger.info(&quot;call getRatingById&quot;);		</span>
-<span class="fc" id="L59">		return convertOptionalToRating(ratingRepository.findById(id));</span>
+<span class="fc" id="L57">		logger.info(&quot;call getRatingById&quot;);		</span>
+<span class="fc" id="L58">		return convertOptionalToRating(ratingRepository.findById(id));</span>
 	}
 	
 	/**
@@ -66,8 +65,8 @@ import com.nnk.springboot.repositories.RatingRepository;
 	 * @return saved rating
 	 */
 	public Rating addRating(Rating rating) {
-<span class="nc" id="L69">		logger.info(&quot;call addRating&quot;);	</span>
-<span class="nc" id="L70">		return ratingRepository.save(rating);</span>
+<span class="fc" id="L68">		logger.info(&quot;call addRating&quot;);	</span>
+<span class="fc" id="L69">		return ratingRepository.save(rating);</span>
 	}
 	
 	
@@ -78,8 +77,8 @@ import com.nnk.springboot.repositories.RatingRepository;
 	 * @return updated rating
 	 */
 	public Rating updateRating(Rating rating) {
-<span class="fc" id="L81">		logger.info(&quot;call updateRating&quot;);	</span>
-<span class="fc" id="L82">		return ratingRepository.save(rating);</span>
+<span class="fc" id="L80">		logger.info(&quot;call updateRating&quot;);	</span>
+<span class="fc" id="L81">		return ratingRepository.save(rating);</span>
 	}
 	
 	/**
@@ -88,10 +87,10 @@ import com.nnk.springboot.repositories.RatingRepository;
 	 * @param id of the rating to delete
 	 */
 	public void deleteRating(Integer id) {
-<span class="fc" id="L91">		logger.info(&quot;call deleteRating&quot;);	</span>
-<span class="fc" id="L92">		ratingRepository.deleteById(id);</span>
+<span class="fc" id="L90">		logger.info(&quot;call deleteRating&quot;);	</span>
+<span class="fc" id="L91">		ratingRepository.deleteById(id);</span>
 		
-<span class="fc" id="L94">	}</span>
+<span class="fc" id="L93">	}</span>
 	
 	/**
 	 * Call the data validation method for every attribute of the rating
@@ -99,11 +98,11 @@ import com.nnk.springboot.repositories.RatingRepository;
 	 * @param rating to validate
 	 */
 	public void validateRating(Rating rating) {
-<span class="nc" id="L102">        validateIntegerInRange(rating.getMoodysRating(), &quot;Moody Rating&quot;, 0, 10);</span>
-<span class="nc" id="L103">        validateIntegerInRange(rating.getSandPRating(), &quot;S&amp;P Rating&quot;, 0, 10);</span>
-<span class="nc" id="L104">        validateIntegerInRange(rating.getFitchRating(), &quot;Fitch Rating&quot;, 0, 10);</span>
-<span class="nc" id="L105">        validateIntegerInRange(rating.getOrderNumber(), &quot;Order Number&quot;, 0, 1000);</span>
-<span class="nc" id="L106">    }</span>
+<span class="fc" id="L101">        validateIntegerInRange(rating.getMoodysRating(), &quot;Moody Rating&quot;, 0, 10);</span>
+<span class="fc" id="L102">        validateIntegerInRange(rating.getSandPRating(), &quot;S&amp;P Rating&quot;, 0, 10);</span>
+<span class="fc" id="L103">        validateIntegerInRange(rating.getFitchRating(), &quot;Fitch Rating&quot;, 0, 10);</span>
+<span class="fc" id="L104">        validateIntegerInRange(rating.getOrderNumber(), &quot;Order Number&quot;, 0, 1000);</span>
+<span class="fc" id="L105">    }</span>
 
     /**
      * Check the data validity
@@ -114,10 +113,10 @@ import com.nnk.springboot.repositories.RatingRepository;
      * @param max integer value accepted
      */
 	private void validateIntegerInRange(Integer value, String fieldName, int min, int max) {
-<span class="nc bnc" id="L117" title="All 6 branches missed.">        if (value == null || value &lt; min || value &gt; max) {</span>
-<span class="nc" id="L118">            throw new RatingException(fieldName + &quot; must be an integer between &quot; + min + &quot; and &quot; + max + &quot;.&quot;);</span>
+<span class="pc bpc" id="L116" title="1 of 6 branches missed.">        if (value == null || value &lt; min || value &gt; max) {</span>
+<span class="fc" id="L117">            throw new RatingException(fieldName + &quot; must be an integer between &quot; + min + &quot; and &quot; + max + &quot;.&quot;);</span>
         }
-<span class="nc" id="L120">    }</span>
+<span class="fc" id="L119">    }</span>
 
 	
 

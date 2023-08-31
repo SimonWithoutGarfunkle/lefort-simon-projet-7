@@ -16,7 +16,10 @@ import com.nnk.springboot.repositories.UserRepository;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-<span class="nc" id="L19">		return userRepository.findByUsername(username);</span>
+<span class="fc bfc" id="L19" title="All 2 branches covered.">		if (userRepository.findByUsername(username) == null) {</span>
+<span class="fc" id="L20">			throw new UsernameNotFoundException(&quot;User not found: &quot; + username); </span>
+		}
+<span class="fc" id="L22">		return userRepository.findByUsername(username);</span>
 	}
 
 }

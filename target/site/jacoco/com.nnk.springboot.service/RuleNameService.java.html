@@ -23,22 +23,34 @@ import com.nnk.springboot.repositories.RuleNameRepository;
 	/**
 	 * Extract all Rules from the Databse
 	 * 
-	 * @return List of all Rules from the Databse
+	 * @return List of all Rules from the Database
 	 */
 	public List&lt;RuleName&gt; getAllRules() {
-<span class="nc" id="L29">		logger.info(&quot;call getAllRule&quot;);</span>
-<span class="nc" id="L30">		return ruleNameRepository.findAll();</span>
+<span class="fc" id="L29">		logger.info(&quot;call getAllRule&quot;);</span>
+<span class="fc" id="L30">		return ruleNameRepository.findAll();</span>
 	}
 	
+	/**
+	 * Convert Optional&lt;RuleName&gt; to RuleName
+	 * 
+	 * @param option to convert
+	 * @return RuleName or null
+	 */
 	public RuleName convertOptionalToRule(Optional&lt;RuleName&gt; option) {
-<span class="nc" id="L34">		logger.info(&quot;call convertOptionalToRule&quot;);</span>
-<span class="nc" id="L35">		return option.orElse(null);</span>
+<span class="fc" id="L40">		logger.info(&quot;call convertOptionalToRule&quot;);</span>
+<span class="fc" id="L41">		return option.orElse(null);</span>
 		
 	}
 	
+	/**
+	 * Extract the RuleName corresponding to the Id from DB
+	 * 
+	 * @param id of the RuleName
+	 * @return RuleName
+	 */
 	public RuleName getRuleNameById(Integer id) {
-<span class="nc" id="L40">		logger.info(&quot;call getRuleNameById&quot;);		</span>
-<span class="nc" id="L41">		return convertOptionalToRule(ruleNameRepository.findById(id));		</span>
+<span class="fc" id="L52">		logger.info(&quot;call getRuleNameById&quot;);		</span>
+<span class="fc" id="L53">		return convertOptionalToRule(ruleNameRepository.findById(id));		</span>
 	}
 	
 	/**
@@ -48,8 +60,8 @@ import com.nnk.springboot.repositories.RuleNameRepository;
 	 * @return saved ruleName
 	 */
 	public RuleName addRuleName(RuleName ruleName) {
-<span class="nc" id="L51">		logger.info(&quot;call addRuleName&quot;);	</span>
-<span class="nc" id="L52">		return ruleNameRepository.save(ruleName);</span>
+<span class="fc" id="L63">		logger.info(&quot;call addRuleName&quot;);	</span>
+<span class="fc" id="L64">		return ruleNameRepository.save(ruleName);</span>
 	}
 	
 	
@@ -60,8 +72,8 @@ import com.nnk.springboot.repositories.RuleNameRepository;
 	 * @return updated RuleName
 	 */
 	public RuleName updateRuleName(RuleName ruleName) {
-<span class="nc" id="L63">		logger.info(&quot;call updateRating&quot;);	</span>
-<span class="nc" id="L64">		return ruleNameRepository.save(ruleName);</span>
+<span class="fc" id="L75">		logger.info(&quot;call updateRating&quot;);	</span>
+<span class="fc" id="L76">		return ruleNameRepository.save(ruleName);</span>
 	}
 	
 	/**
@@ -70,10 +82,9 @@ import com.nnk.springboot.repositories.RuleNameRepository;
 	 * @param id of the RuleName to delete
 	 */
 	public void deleteRuleName(Integer id) {
-<span class="nc" id="L73">		logger.info(&quot;call deleteRuleName&quot;);	</span>
-<span class="nc" id="L74">		ruleNameRepository.deleteById(id);</span>
-		
-<span class="nc" id="L76">	}</span>
+<span class="fc" id="L85">		logger.info(&quot;call deleteRuleName&quot;);	</span>
+<span class="fc" id="L86">		ruleNameRepository.deleteById(id);		</span>
+<span class="fc" id="L87">	}</span>
 	
 	
 	/**
@@ -83,10 +94,10 @@ import com.nnk.springboot.repositories.RuleNameRepository;
 	 * @param ruleName to validate
 	 */
 	public void validateRuleName(RuleName ruleName) {
-<span class="nc" id="L86">		validateStringRuleName(ruleName.getName(),&quot;Name&quot;, 2);</span>
-<span class="nc" id="L87">		validateStringRuleName(ruleName.getJson(),&quot;Json&quot;, 2);</span>
+<span class="fc" id="L97">		validateStringRuleName(ruleName.getName(),&quot;Name&quot;, 2);</span>
+<span class="fc" id="L98">		validateStringRuleName(ruleName.getJson(),&quot;Json&quot;, 2);</span>
 				
-<span class="nc" id="L89">	}</span>
+<span class="fc" id="L100">	}</span>
 	
 	/**
 	 * Check the data validity 
@@ -96,10 +107,10 @@ import com.nnk.springboot.repositories.RuleNameRepository;
 	 * @param min string lenghth requiered
 	 */
 	private void validateStringRuleName(String value, String fieldName, int min) {
-<span class="nc bnc" id="L99" title="All 4 branches missed.">		if (value == null || value.trim().length()&lt;min ) {</span>
-<span class="nc" id="L100">			throw new RuleNameException(fieldName + &quot; must be a text of at least &quot; + min + &quot; characters.&quot;);</span>
+<span class="pc bpc" id="L110" title="1 of 4 branches missed.">		if (value == null || value.trim().length()&lt;min ) {</span>
+<span class="fc" id="L111">			throw new RuleNameException(fieldName + &quot; must be a text of at least &quot; + min + &quot; characters.&quot;);</span>
 		}				
-<span class="nc" id="L102">	}</span>
+<span class="fc" id="L113">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

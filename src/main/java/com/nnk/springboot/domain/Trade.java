@@ -37,6 +37,22 @@ public class Trade {
 	String sourceListId;
 	String side;
 	
+	
+	
+	public Trade() {
+		super();
+	}
+	
+	
+	
+	public Trade(String account, String type) {
+		super();
+		this.account = account;
+		this.type = type;
+	}
+
+
+
 	public Integer getTradeId() {
 		return tradeId;
 	}
