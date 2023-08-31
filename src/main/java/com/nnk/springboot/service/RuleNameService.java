@@ -12,6 +12,12 @@ import com.nnk.springboot.domain.RuleName;
 import com.nnk.springboot.exceptions.RuleNameException;
 import com.nnk.springboot.repositories.RuleNameRepository;
 
+/**
+ * Implementation the CRUD for the RuleName Entity
+ * 
+ * @author Simon
+ *
+ */
 @Service
 public class RuleNameService {
 	
@@ -31,7 +37,7 @@ public class RuleNameService {
 	}
 	
 	/**
-	 * Convert Optional<RuleName> to RuleName
+	 * Convert Optional RuleName to RuleName
 	 * 
 	 * @param option to convert
 	 * @return RuleName or null
@@ -56,7 +62,7 @@ public class RuleNameService {
 	/**
 	 * Add RuleName to DB
 	 * 
-	 * @param ruleName
+	 * @param ruleName to add
 	 * @return saved ruleName
 	 */
 	public RuleName addRuleName(RuleName ruleName) {
@@ -68,7 +74,7 @@ public class RuleNameService {
 	/**
 	 * Update an existing RuleName
 	 * 
-	 * @param RuleName
+	 * @param ruleName to update
 	 * @return updated RuleName
 	 */
 	public RuleName updateRuleName(RuleName ruleName) {
@@ -103,7 +109,7 @@ public class RuleNameService {
 	 * Check the data validity 
 	 * 
 	 * @param value to test
-	 * @param fieldName
+	 * @param fieldName to test
 	 * @param min string lenghth requiered
 	 */
 	private void validateStringRuleName(String value, String fieldName, int min) {

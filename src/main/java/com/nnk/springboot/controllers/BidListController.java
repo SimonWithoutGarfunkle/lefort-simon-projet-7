@@ -1,7 +1,6 @@
 package com.nnk.springboot.controllers;
 
 import com.nnk.springboot.domain.BidList;
-import com.nnk.springboot.domain.CurvePoint;
 import com.nnk.springboot.service.BidListService;
 
 import jakarta.validation.Valid;

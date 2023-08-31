@@ -11,6 +11,12 @@ import org.springframework.stereotype.Service;
 import com.nnk.springboot.domain.CurvePoint;
 import com.nnk.springboot.repositories.CurvePointRepository;
 
+/**
+ * Implementation the CRUD for the CurvePoint Entity
+ * 
+ * @author Simon
+ *
+ */
 @Service
 public class CurvePointService {
 	
@@ -31,7 +37,7 @@ public class CurvePointService {
 
 	
 	/**
-	 * Convert Optional<CurvePoint> to CurvePoint
+	 * Convert Optional CurvePoint to CurvePoint
 	 * 
 	 * @param option to convert
 	 * @return CurvePoint or null
@@ -57,7 +63,7 @@ public class CurvePointService {
 	/**
 	 * Add CurvePoint to DB
 	 * 
-	 * @param curvePoint
+	 * @param curvePoint to add
 	 * @return saved curvePoint
 	 */
 	public CurvePoint addCurvePoint(CurvePoint curvePoint) {
@@ -69,7 +75,7 @@ public class CurvePointService {
 	/**
 	 * Update an existing CurvePoint
 	 * 
-	 * @param CurvePoint
+	 * @param curvePoint to update
 	 * @return updated CurvePoint
 	 */
 	public CurvePoint updateCurvePoint(CurvePoint curvePoint) {

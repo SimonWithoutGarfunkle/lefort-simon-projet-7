@@ -4395,3 +4395,177 @@ org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property o
 2023-08-31T18:42:50.491+02:00  INFO 5576 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-08-31T18:42:50.494+02:00  INFO 5576 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2023-08-31T18:42:50.499+02:00  INFO 5576 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-08-31T18:50:10.703+02:00  INFO 18688 --- [main] com.nnk.springboot.BidTests              : Starting BidTests using Java 17.0.6 with PID 18688 (started by Simon in C:\Users\simon\eclipse-workspace\Poseiden-skeleton)
+2023-08-31T18:50:10.705+02:00  INFO 18688 --- [main] com.nnk.springboot.BidTests              : No active profile set, falling back to 1 default profile: "default"
+2023-08-31T18:50:11.677+02:00  INFO 18688 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-31T18:50:11.775+02:00  INFO 18688 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 81 ms. Found 6 JPA repository interfaces.
+2023-08-31T18:50:12.359+02:00  INFO 18688 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-31T18:50:12.427+02:00  INFO 18688 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.2.Final
+2023-08-31T18:50:12.429+02:00  INFO 18688 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-08-31T18:50:12.656+02:00  INFO 18688 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-31T18:50:12.830+02:00  INFO 18688 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-08-31T18:50:12.853+02:00  INFO 18688 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-08-31T18:50:13.199+02:00  INFO 18688 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@46bb0567
+2023-08-31T18:50:13.201+02:00  INFO 18688 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-08-31T18:50:13.265+02:00  INFO 18688 --- [main] org.hibernate.orm.dialect                : HHH035001: Using dialect: org.hibernate.dialect.MySQLDialect, version: 8.0.33
+2023-08-31T18:50:13.668+02:00  INFO 18688 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-31T18:50:14.545+02:00  INFO 18688 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-31T18:50:14.693+02:00  INFO 18688 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-31T18:50:15.224+02:00  WARN 18688 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-31T18:50:15.602+02:00  INFO 18688 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@fc35cc, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@72311210, org.springframework.security.web.context.SecurityContextHolderFilter@6373a753, org.springframework.security.web.header.HeaderWriterFilter@6c05ae65, org.springframework.security.web.csrf.CsrfFilter@7e12d310, org.springframework.security.web.authentication.logout.LogoutFilter@61729437, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@18bd405b, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@24a54d49, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@4e8007e2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@49a72dd5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@18f333f2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3ff906e9, org.springframework.security.web.access.ExceptionTranslationFilter@5e635533, org.springframework.security.web.access.intercept.AuthorizationFilter@2dd14806]
+2023-08-31T18:50:15.932+02:00  INFO 18688 --- [main] com.nnk.springboot.BidTests              : Started BidTests in 5.596 seconds (process running for 7.485)
+2023-08-31T18:50:16.568+02:00  INFO 18688 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.nnk.springboot.CurvePointTests]: CurvePointTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-08-31T18:50:16.570+02:00  INFO 18688 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.nnk.springboot.Application for test class com.nnk.springboot.CurvePointTests
+2023-08-31T18:50:16.604+02:00  INFO 18688 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.nnk.springboot.RatingTests]: RatingTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-08-31T18:50:16.605+02:00  INFO 18688 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.nnk.springboot.Application for test class com.nnk.springboot.RatingTests
+2023-08-31T18:50:16.633+02:00  INFO 18688 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.nnk.springboot.RuleNameTests]: RuleNameTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-08-31T18:50:16.635+02:00  INFO 18688 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.nnk.springboot.Application for test class com.nnk.springboot.RuleNameTests
+2023-08-31T18:50:17.066+02:00  INFO 18688 --- [main] c.nnk.springboot.service.BidListService  : call convertOptionalToBidList
+2023-08-31T18:50:17.073+02:00  INFO 18688 --- [main] c.nnk.springboot.service.BidListService  : call getAllRule
+2023-08-31T18:50:17.092+02:00  INFO 18688 --- [main] c.nnk.springboot.service.BidListService  : call getBidListById
+2023-08-31T18:50:17.096+02:00  INFO 18688 --- [main] c.nnk.springboot.service.BidListService  : call convertOptionalToBidList
+2023-08-31T18:50:17.121+02:00  INFO 18688 --- [main] c.nnk.springboot.service.BidListService  : call updateBidList
+2023-08-31T18:50:17.126+02:00  INFO 18688 --- [main] c.nnk.springboot.service.BidListService  : call convertOptionalToBidList
+2023-08-31T18:50:17.130+02:00  INFO 18688 --- [main] c.nnk.springboot.service.BidListService  : call addBidList
+2023-08-31T18:50:17.133+02:00  INFO 18688 --- [main] c.nnk.springboot.service.BidListService  : call deleteBidList
+2023-08-31T18:50:17.222+02:00  INFO 18688 --- [main] c.n.s.service.CurvePointService          : call convertOptionalToCurvePoint
+2023-08-31T18:50:17.225+02:00  INFO 18688 --- [main] c.n.s.service.CurvePointService          : call convertOptionalToCurvePoint
+2023-08-31T18:50:17.230+02:00  INFO 18688 --- [main] c.n.s.service.CurvePointService          : call getAllRule
+2023-08-31T18:50:17.234+02:00  INFO 18688 --- [main] c.n.s.service.CurvePointService          : call deleteCurvePoint
+2023-08-31T18:50:17.237+02:00  INFO 18688 --- [main] c.n.s.service.CurvePointService          : call addCurvePoint
+2023-08-31T18:50:17.242+02:00  INFO 18688 --- [main] c.n.s.service.CurvePointService          : call getCurvePointById
+2023-08-31T18:50:17.242+02:00  INFO 18688 --- [main] c.n.s.service.CurvePointService          : call convertOptionalToCurvePoint
+2023-08-31T18:50:17.245+02:00  INFO 18688 --- [main] c.n.s.service.CurvePointService          : call updateCurvePoint
+2023-08-31T18:50:17.410+02:00  INFO 18688 --- [main] c.nnk.springboot.service.RatingService   : call getRatingById
+2023-08-31T18:50:17.410+02:00  INFO 18688 --- [main] c.nnk.springboot.service.RatingService   : call convertOptionalToRating
+2023-08-31T18:50:17.423+02:00  INFO 18688 --- [main] c.nnk.springboot.service.RatingService   : call getAllRatings
+2023-08-31T18:50:17.431+02:00  INFO 18688 --- [main] c.nnk.springboot.service.RatingService   : call updateRating
+2023-08-31T18:50:17.434+02:00  INFO 18688 --- [main] c.nnk.springboot.service.RatingService   : call deleteRating
+2023-08-31T18:50:17.437+02:00  INFO 18688 --- [main] c.nnk.springboot.service.RatingService   : call addRating
+2023-08-31T18:50:17.439+02:00  INFO 18688 --- [main] c.nnk.springboot.service.RatingService   : call convertOptionalToRating
+2023-08-31T18:50:17.449+02:00  INFO 18688 --- [main] c.nnk.springboot.service.RatingService   : call convertOptionalToRating
+2023-08-31T18:50:17.517+02:00  INFO 18688 --- [main] c.n.springboot.service.RuleNameService   : call convertOptionalToRule
+2023-08-31T18:50:17.521+02:00  INFO 18688 --- [main] c.n.springboot.service.RuleNameService   : call getAllRule
+2023-08-31T18:50:17.523+02:00  INFO 18688 --- [main] c.n.springboot.service.RuleNameService   : call addRuleName
+2023-08-31T18:50:17.526+02:00  INFO 18688 --- [main] c.n.springboot.service.RuleNameService   : call getRuleNameById
+2023-08-31T18:50:17.527+02:00  INFO 18688 --- [main] c.n.springboot.service.RuleNameService   : call convertOptionalToRule
+2023-08-31T18:50:17.536+02:00  INFO 18688 --- [main] c.n.springboot.service.RuleNameService   : call updateRuleName
+2023-08-31T18:50:17.542+02:00  INFO 18688 --- [main] c.n.springboot.service.RuleNameService   : call deleteRuleName
+2023-08-31T18:50:17.546+02:00  INFO 18688 --- [main] c.n.springboot.service.RuleNameService   : call convertOptionalToRule
+2023-08-31T18:50:17.623+02:00  INFO 18688 --- [main] c.nnk.springboot.service.TradeService    : call deleteTrade
+2023-08-31T18:50:17.625+02:00  INFO 18688 --- [main] c.nnk.springboot.service.TradeService    : call updateTrade
+2023-08-31T18:50:17.627+02:00  INFO 18688 --- [main] c.nnk.springboot.service.TradeService    : call addTrade
+2023-08-31T18:50:17.630+02:00  INFO 18688 --- [main] c.nnk.springboot.service.TradeService    : call getAllRule
+2023-08-31T18:50:17.632+02:00  INFO 18688 --- [main] c.nnk.springboot.service.TradeService    : call convertOptionalToTrade
+2023-08-31T18:50:17.635+02:00  INFO 18688 --- [main] c.nnk.springboot.service.TradeService    : call convertOptionalToTrade
+2023-08-31T18:50:17.638+02:00  INFO 18688 --- [main] c.nnk.springboot.service.TradeService    : call getTradeById
+2023-08-31T18:50:17.638+02:00  INFO 18688 --- [main] c.nnk.springboot.service.TradeService    : call convertOptionalToTrade
+2023-08-31T18:50:17.642+02:00  INFO 18688 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.nnk.springboot.TradeTests]: TradeTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-08-31T18:50:17.645+02:00  INFO 18688 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.nnk.springboot.Application for test class com.nnk.springboot.TradeTests
+2023-08-31T18:50:17.707+02:00  INFO 18688 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-31T18:50:17.868+02:00  INFO 18688 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-08-31T18:50:17.880+02:00  INFO 18688 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-08-31T18:58:52.171+02:00  INFO 6276 --- [main] com.nnk.springboot.BidTests              : Starting BidTests using Java 17.0.6 with PID 6276 (started by Simon in C:\Users\simon\eclipse-workspace\Poseiden-skeleton)
+2023-08-31T18:58:52.172+02:00  INFO 6276 --- [main] com.nnk.springboot.BidTests              : No active profile set, falling back to 1 default profile: "default"
+2023-08-31T18:58:53.087+02:00  INFO 6276 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-31T18:58:53.199+02:00  INFO 6276 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 101 ms. Found 6 JPA repository interfaces.
+2023-08-31T18:58:53.866+02:00  INFO 6276 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-31T18:58:53.935+02:00  INFO 6276 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.2.Final
+2023-08-31T18:58:53.938+02:00  INFO 6276 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-08-31T18:58:54.150+02:00  INFO 6276 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-31T18:58:54.293+02:00  INFO 6276 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-08-31T18:58:54.314+02:00  INFO 6276 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-08-31T18:58:54.656+02:00  INFO 6276 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6c9b2d0e
+2023-08-31T18:58:54.659+02:00  INFO 6276 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-08-31T18:58:54.722+02:00  INFO 6276 --- [main] org.hibernate.orm.dialect                : HHH035001: Using dialect: org.hibernate.dialect.MySQLDialect, version: 8.0.33
+2023-08-31T18:58:55.092+02:00  INFO 6276 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-31T18:58:55.919+02:00  INFO 6276 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-31T18:58:56.062+02:00  INFO 6276 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-31T18:58:56.567+02:00  WARN 6276 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-31T18:58:56.913+02:00  INFO 6276 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2ba859bf, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@385c3093, org.springframework.security.web.context.SecurityContextHolderFilter@584706be, org.springframework.security.web.header.HeaderWriterFilter@1d21033e, org.springframework.security.web.csrf.CsrfFilter@50833f62, org.springframework.security.web.authentication.logout.LogoutFilter@1279b142, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5b391bd2, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@61a7c3a7, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@6336df27, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@899d0e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3479ffd1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@45761ad8, org.springframework.security.web.access.ExceptionTranslationFilter@4e24b174, org.springframework.security.web.access.intercept.AuthorizationFilter@18f92361]
+2023-08-31T18:58:57.228+02:00  INFO 6276 --- [main] com.nnk.springboot.BidTests              : Started BidTests in 5.445 seconds (process running for 7.439)
+2023-08-31T18:58:57.866+02:00  INFO 6276 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.nnk.springboot.CurvePointTests]: CurvePointTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-08-31T18:58:57.867+02:00  INFO 6276 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.nnk.springboot.Application for test class com.nnk.springboot.CurvePointTests
+2023-08-31T18:58:57.898+02:00  INFO 6276 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.nnk.springboot.PasswordEncodeTest]: PasswordEncodeTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-08-31T18:58:57.900+02:00  INFO 6276 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.nnk.springboot.Application for test class com.nnk.springboot.PasswordEncodeTest
+2023-08-31T18:58:57.970+02:00  INFO 6276 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.nnk.springboot.RatingTests]: RatingTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-08-31T18:58:57.972+02:00  INFO 6276 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.nnk.springboot.Application for test class com.nnk.springboot.RatingTests
+2023-08-31T18:58:57.997+02:00  INFO 6276 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.nnk.springboot.RuleNameTests]: RuleNameTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-08-31T18:58:57.999+02:00  INFO 6276 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.nnk.springboot.Application for test class com.nnk.springboot.RuleNameTests
+2023-08-31T18:58:58.420+02:00  INFO 6276 --- [main] c.nnk.springboot.service.BidListService  : call convertOptionalToBidList
+2023-08-31T18:58:58.427+02:00  INFO 6276 --- [main] c.nnk.springboot.service.BidListService  : call getAllRule
+2023-08-31T18:58:58.448+02:00  INFO 6276 --- [main] c.nnk.springboot.service.BidListService  : call getBidListById
+2023-08-31T18:58:58.450+02:00  INFO 6276 --- [main] c.nnk.springboot.service.BidListService  : call convertOptionalToBidList
+2023-08-31T18:58:58.474+02:00  INFO 6276 --- [main] c.nnk.springboot.service.BidListService  : call updateBidList
+2023-08-31T18:58:58.479+02:00  INFO 6276 --- [main] c.nnk.springboot.service.BidListService  : call convertOptionalToBidList
+2023-08-31T18:58:58.482+02:00  INFO 6276 --- [main] c.nnk.springboot.service.BidListService  : call addBidList
+2023-08-31T18:58:58.485+02:00  INFO 6276 --- [main] c.nnk.springboot.service.BidListService  : call deleteBidList
+2023-08-31T18:58:58.586+02:00  INFO 6276 --- [main] c.n.s.service.CurvePointService          : call convertOptionalToCurvePoint
+2023-08-31T18:58:58.590+02:00  INFO 6276 --- [main] c.n.s.service.CurvePointService          : call convertOptionalToCurvePoint
+2023-08-31T18:58:58.595+02:00  INFO 6276 --- [main] c.n.s.service.CurvePointService          : call getAllRule
+2023-08-31T18:58:58.598+02:00  INFO 6276 --- [main] c.n.s.service.CurvePointService          : call deleteCurvePoint
+2023-08-31T18:58:58.602+02:00  INFO 6276 --- [main] c.n.s.service.CurvePointService          : call addCurvePoint
+2023-08-31T18:58:58.606+02:00  INFO 6276 --- [main] c.n.s.service.CurvePointService          : call getCurvePointById
+2023-08-31T18:58:58.606+02:00  INFO 6276 --- [main] c.n.s.service.CurvePointService          : call convertOptionalToCurvePoint
+2023-08-31T18:58:58.610+02:00  INFO 6276 --- [main] c.n.s.service.CurvePointService          : call updateCurvePoint
+2023-08-31T18:58:58.775+02:00  INFO 6276 --- [main] c.nnk.springboot.service.RatingService   : call getRatingById
+2023-08-31T18:58:58.776+02:00  INFO 6276 --- [main] c.nnk.springboot.service.RatingService   : call convertOptionalToRating
+2023-08-31T18:58:58.788+02:00  INFO 6276 --- [main] c.nnk.springboot.service.RatingService   : call getAllRatings
+2023-08-31T18:58:58.795+02:00  INFO 6276 --- [main] c.nnk.springboot.service.RatingService   : call updateRating
+2023-08-31T18:58:58.799+02:00  INFO 6276 --- [main] c.nnk.springboot.service.RatingService   : call deleteRating
+2023-08-31T18:58:58.802+02:00  INFO 6276 --- [main] c.nnk.springboot.service.RatingService   : call addRating
+2023-08-31T18:58:58.804+02:00  INFO 6276 --- [main] c.nnk.springboot.service.RatingService   : call convertOptionalToRating
+2023-08-31T18:58:58.813+02:00  INFO 6276 --- [main] c.nnk.springboot.service.RatingService   : call convertOptionalToRating
+2023-08-31T18:58:58.881+02:00  INFO 6276 --- [main] c.n.springboot.service.RuleNameService   : call convertOptionalToRule
+2023-08-31T18:58:58.883+02:00  INFO 6276 --- [main] c.n.springboot.service.RuleNameService   : call getAllRule
+2023-08-31T18:58:58.886+02:00  INFO 6276 --- [main] c.n.springboot.service.RuleNameService   : call addRuleName
+2023-08-31T18:58:58.888+02:00  INFO 6276 --- [main] c.n.springboot.service.RuleNameService   : call getRuleNameById
+2023-08-31T18:58:58.890+02:00  INFO 6276 --- [main] c.n.springboot.service.RuleNameService   : call convertOptionalToRule
+2023-08-31T18:58:58.899+02:00  INFO 6276 --- [main] c.n.springboot.service.RuleNameService   : call updateRuleName
+2023-08-31T18:58:58.905+02:00  INFO 6276 --- [main] c.n.springboot.service.RuleNameService   : call deleteRuleName
+2023-08-31T18:58:58.908+02:00  INFO 6276 --- [main] c.n.springboot.service.RuleNameService   : call convertOptionalToRule
+2023-08-31T18:58:58.974+02:00  INFO 6276 --- [main] c.nnk.springboot.service.TradeService    : call deleteTrade
+2023-08-31T18:58:58.976+02:00  INFO 6276 --- [main] c.nnk.springboot.service.TradeService    : call updateTrade
+2023-08-31T18:58:58.978+02:00  INFO 6276 --- [main] c.nnk.springboot.service.TradeService    : call addTrade
+2023-08-31T18:58:58.981+02:00  INFO 6276 --- [main] c.nnk.springboot.service.TradeService    : call getAllRule
+2023-08-31T18:58:58.983+02:00  INFO 6276 --- [main] c.nnk.springboot.service.TradeService    : call convertOptionalToTrade
+2023-08-31T18:58:58.986+02:00  INFO 6276 --- [main] c.nnk.springboot.service.TradeService    : call convertOptionalToTrade
+2023-08-31T18:58:58.988+02:00  INFO 6276 --- [main] c.nnk.springboot.service.TradeService    : call getTradeById
+2023-08-31T18:58:58.989+02:00  INFO 6276 --- [main] c.nnk.springboot.service.TradeService    : call convertOptionalToTrade
+2023-08-31T18:58:58.992+02:00  INFO 6276 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.nnk.springboot.TradeTests]: TradeTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-08-31T18:58:58.995+02:00  INFO 6276 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.nnk.springboot.Application for test class com.nnk.springboot.TradeTests
+2023-08-31T18:58:59.070+02:00  INFO 6276 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-31T18:58:59.238+02:00  INFO 6276 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-08-31T18:58:59.250+02:00  INFO 6276 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-08-31T18:59:38.268+02:00  INFO 1548 --- [restartedMain] com.nnk.springboot.Application           : Starting Application using Java 17.0.6 with PID 1548 (C:\Users\simon\eclipse-workspace\Poseiden-skeleton\target\classes started by Simon in C:\Users\simon\eclipse-workspace\Poseiden-skeleton)
+2023-08-31T18:59:38.270+02:00  INFO 1548 --- [restartedMain] com.nnk.springboot.Application           : No active profile set, falling back to 1 default profile: "default"
+2023-08-31T18:59:38.302+02:00  INFO 1548 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-08-31T18:59:38.302+02:00  INFO 1548 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-08-31T18:59:38.710+02:00  INFO 1548 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-31T18:59:38.755+02:00  INFO 1548 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 40 ms. Found 6 JPA repository interfaces.
+2023-08-31T18:59:39.205+02:00  INFO 1548 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-08-31T18:59:39.212+02:00  INFO 1548 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-31T18:59:39.213+02:00  INFO 1548 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-08-31T18:59:39.264+02:00  INFO 1548 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-31T18:59:39.264+02:00  INFO 1548 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 961 ms
+2023-08-31T18:59:39.290+02:00  INFO 1548 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-08-31T18:59:39.473+02:00  INFO 1548 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@700be8a3
+2023-08-31T18:59:39.474+02:00  INFO 1548 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-08-31T18:59:39.481+02:00  INFO 1548 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/demo'
+2023-08-31T18:59:39.560+02:00  INFO 1548 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-31T18:59:39.596+02:00  INFO 1548 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.2.Final
+2023-08-31T18:59:39.599+02:00  INFO 1548 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-08-31T18:59:39.688+02:00  INFO 1548 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-31T18:59:39.776+02:00  INFO 1548 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-08-31T18:59:39.817+02:00  INFO 1548 --- [restartedMain] org.hibernate.orm.dialect                : HHH035001: Using dialect: org.hibernate.dialect.MySQLDialect, version: 8.0.33
+2023-08-31T18:59:39.956+02:00  INFO 1548 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-31T18:59:40.456+02:00  INFO 1548 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-31T18:59:40.585+02:00  INFO 1548 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-31T18:59:40.872+02:00  WARN 1548 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-31T18:59:41.057+02:00  INFO 1548 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@22fc4577, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1186200a, org.springframework.security.web.context.SecurityContextHolderFilter@36ae3381, org.springframework.security.web.header.HeaderWriterFilter@75736912, org.springframework.security.web.csrf.CsrfFilter@61304747, org.springframework.security.web.authentication.logout.LogoutFilter@6d78794, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7c09e81a, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@40856729, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@32416374, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@678b7c9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1f4c0a50, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6dcb81f7, org.springframework.security.web.access.ExceptionTranslationFilter@1c2808ef, org.springframework.security.web.access.intercept.AuthorizationFilter@52575bb]
+2023-08-31T18:59:41.190+02:00  INFO 1548 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-08-31T18:59:41.210+02:00  INFO 1548 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-08-31T18:59:41.216+02:00  INFO 1548 --- [restartedMain] com.nnk.springboot.Application           : Started Application in 3.213 seconds (process running for 3.557)
+2023-08-31T19:00:52.149+02:00  INFO 1548 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-31T19:00:52.151+02:00  INFO 1548 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-08-31T19:00:52.156+02:00  INFO 1548 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

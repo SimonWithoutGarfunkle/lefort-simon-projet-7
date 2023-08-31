@@ -44,7 +44,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
     @PostMapping(&quot;/curvePoint/validate&quot;)
     public String validate(@Valid CurvePoint curvePoint, BindingResult result, Model model) {
 <span class="nc" id="L46">        curvePointService.addCurvePoint(curvePoint);</span>
-<span class="nc" id="L47">        return &quot;curvePoint/list&quot;;</span>
+<span class="nc" id="L47">        return &quot;redirect:/curvePoint/list&quot;;</span>
     }
 
     @GetMapping(&quot;/curvePoint/update/{id}&quot;)

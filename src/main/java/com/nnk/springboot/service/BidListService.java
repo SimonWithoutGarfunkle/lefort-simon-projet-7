@@ -11,6 +11,12 @@ import org.springframework.stereotype.Service;
 import com.nnk.springboot.domain.BidList;
 import com.nnk.springboot.repositories.BidListRepository;
 
+/**
+ * Implementation the CRUD for the BidList Entity
+ * 
+ * @author Simon
+ *
+ */
 @Service
 public class BidListService {
 	
@@ -31,7 +37,7 @@ public class BidListService {
 
 	
 	/**
-	 * Convert Optional<BidList> to BidList
+	 * Convert Optional BidList to BidList
 	 * 
 	 * @param option to convert
 	 * @return BidList or null
@@ -57,7 +63,7 @@ public class BidListService {
 	/**
 	 * Add BidList to DB
 	 * 
-	 * @param bidList
+	 * @param bidList to add
 	 * @return saved bidList
 	 */
 	public BidList addBidList(BidList bidList) {
@@ -69,7 +75,7 @@ public class BidListService {
 	/**
 	 * Update an existing BidList
 	 * 
-	 * @param BidList
+	 * @param bidList to update
 	 * @return updated BidList
 	 */
 	public BidList updateBidList(BidList bidList) {

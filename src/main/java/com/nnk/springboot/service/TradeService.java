@@ -11,6 +11,12 @@ import org.springframework.stereotype.Service;
 import com.nnk.springboot.domain.Trade;
 import com.nnk.springboot.repositories.TradeRepository;
 
+/**
+ * Implementation the CRUD for the Trade Entity
+ * 
+ * @author Simon
+ *
+ */
 @Service
 public class TradeService {
 	
@@ -31,7 +37,7 @@ public class TradeService {
 
 	
 	/**
-	 * Convert Optional<Trade> to Trade
+	 * Convert Optional Trade to Trade
 	 * 
 	 * @param option to convert
 	 * @return Trade or null
@@ -57,7 +63,7 @@ public class TradeService {
 	/**
 	 * Add Trade to DB
 	 * 
-	 * @param trade
+	 * @param trade to add
 	 * @return saved trade
 	 */
 	public Trade addTrade(Trade trade) {
@@ -69,7 +75,7 @@ public class TradeService {
 	/**
 	 * Update an existing Trade
 	 * 
-	 * @param Trade
+	 * @param trade to update
 	 * @return updated Trade
 	 */
 	public Trade updateTrade(Trade trade) {

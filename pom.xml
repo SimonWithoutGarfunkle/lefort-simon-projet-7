@@ -74,6 +74,12 @@
 	   <groupId>org.hibernate.validator</groupId> 
 	   <artifactId>hibernate-validator</artifactId> 
 	</dependency>
+	<dependency>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-javadoc-plugin</artifactId>
+    <version>3.5.0</version>
+</dependency>
+
 	</dependencies>
 
 	<build>
@@ -108,6 +114,15 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <configuration>
+                <!-- Configurations spécifiques du plugin -->
+                <source>17</source>
+                <excludePackageNames>com.nnk.springboot.configuration, com.nnk.springboot.domain, com.nnk.springboot.exceptions, com.nnk.springboot.repositories, com.nnk.springboot.controllers</excludePackageNames>
+            </configuration>
+        </plugin>
 		</plugins>
 	</build>
 </project>
