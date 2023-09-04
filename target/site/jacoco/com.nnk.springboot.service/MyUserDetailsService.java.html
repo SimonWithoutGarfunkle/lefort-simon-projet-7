@@ -8,18 +8,32 @@ import org.springframework.stereotype.Service;
 
 import com.nnk.springboot.repositories.UserRepository;
 
+/**
+ * Custom implementation of the Spring Security UserDetailsService.
+ * This service is responsible for loading user details from the UserRepository.
+ * 
+ * @author Simon
+ *
+ */
 @Service
-<span class="fc" id="L12">public class MyUserDetailsService implements UserDetailsService {</span>
+<span class="fc" id="L19">public class MyUserDetailsService implements UserDetailsService {</span>
 	
 	@Autowired
 	private UserRepository userRepository;
 
+	/**
+     * Load user details by username.
+     *
+     * @param username the username of the user to load
+     * @return UserDetails object containing the user details
+     * @throws UsernameNotFoundException if the user is not found
+     */
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-<span class="fc bfc" id="L19" title="All 2 branches covered.">		if (userRepository.findByUsername(username) == null) {</span>
-<span class="fc" id="L20">			throw new UsernameNotFoundException(&quot;User not found: &quot; + username); </span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">		if (userRepository.findByUsername(username) == null) {</span>
+<span class="fc" id="L34">			throw new UsernameNotFoundException(&quot;User not found: &quot; + username); </span>
 		}
-<span class="fc" id="L22">		return userRepository.findByUsername(username);</span>
+<span class="fc" id="L36">		return userRepository.findByUsername(username);</span>
 	}
 
 }

@@ -1,12 +1,14 @@
 com\nnk\springboot\PasswordEncodeTest.class
+com\nnk\springboot\RatingTests.class
+com\nnk\springboot\controllerTest\BidListControllerTest.class
+com\nnk\springboot\serviceTest\RuleNameServiceTest.class
+com\nnk\springboot\serviceTest\TradeServiceTest.class
 com\nnk\springboot\BidTests.class
 com\nnk\springboot\RuleNameTests.class
 com\nnk\springboot\serviceTest\MyUserDetailsServiceTest.class
-com\nnk\springboot\RatingTests.class
+com\nnk\springboot\configurationTest\SecurityConfigTest.class
 com\nnk\springboot\serviceTest\CurvePointServiceTest.class
 com\nnk\springboot\CurvePointTests.class
 com\nnk\springboot\serviceTest\BidListServiceTest.class
 com\nnk\springboot\TradeTests.class
 com\nnk\springboot\serviceTest\RatingServiceTest.class
-com\nnk\springboot\serviceTest\RuleNameServiceTest.class
-com\nnk\springboot\serviceTest\TradeServiceTest.class

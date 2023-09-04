@@ -9,41 +9,82 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import com.nnk.springboot.service.MyUserDetailsService;
 
-import static org.springframework.security.config.Customizer.withDefaults;
-
+/**
+ * Configure the security of the application
+ * @author Simon
+ *
+ */
 @Configuration
 @EnableWebSecurity
-<span class="fc" id="L16">public class SecurityConfig {</span>
+<span class="fc" id="L19">public class SecurityConfig {</span>
 	
+	/**
+	 * Configures the HTTP security filters for the application. This method defines security rules,
+	 * security filters, and authentication providers for the application's security configuration.
+	 *
+	 * @param http The HTTP security configuration.
+	 * @return The configured security filter chain.
+	 * @throws Exception If an error occurs during configuration.
+	 */
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-<span class="fc" id="L21">		http.authorizeHttpRequests((req) -&gt; req.requestMatchers(&quot;/dashboard&quot;).authenticated()</span>
-<span class="fc" id="L22">				.anyRequest().permitAll())											</span>
-<span class="fc" id="L23">							                .formLogin(withDefaults());                </span>
+<span class="fc" id="L32">		http.authorizeHttpRequests((req) -&gt; req.requestMatchers(&quot;/bidList/**&quot;).authenticated()</span>
+<span class="fc" id="L33">				.requestMatchers(&quot;/curvePoint/**&quot;).authenticated()</span>
+<span class="fc" id="L34">				.requestMatchers(&quot;/rating/**&quot;).authenticated()</span>
+<span class="fc" id="L35">				.requestMatchers(&quot;/trade/**&quot;).authenticated()</span>
+<span class="fc" id="L36">				.requestMatchers(&quot;/rule/**&quot;).authenticated()</span>
+<span class="fc" id="L37">				.requestMatchers(&quot;/rule/**&quot;).authenticated()</span>
+<span class="fc" id="L38">				.requestMatchers(&quot;/user/**&quot;).hasRole(&quot;ADMIN&quot;)</span>
+<span class="fc" id="L39">				.anyRequest().permitAll())											</span>
+<span class="fc" id="L40">				.formLogin(form -&gt; form</span>
+<span class="fc" id="L41">		                .defaultSuccessUrl(&quot;/bidList/list&quot;)</span>
+<span class="fc" id="L42">		                .failureUrl(&quot;/login?error&quot;))						                </span>
+<span class="fc" id="L43">		        .logout((logout) -&gt;</span>
+<span class="fc" id="L44">							logout.logoutUrl(&quot;/app-logout&quot;)</span>
+<span class="fc" id="L45">								.deleteCookies(&quot;remove&quot;)</span>
+<span class="fc" id="L46">								.logoutSuccessUrl(&quot;/login&quot;)</span>
+<span class="fc" id="L47">								.invalidateHttpSession(true)</span>
+<span class="fc" id="L48">								.clearAuthentication(true)</span>
+<span class="fc" id="L49">								.permitAll());              </span>
 							                
-<span class="fc" id="L25">		return http.build();      </span>
+<span class="fc" id="L51">		return http.build();      </span>
 							                
 							                
 	}
 	
 	
+	/**
+	 * Configure the authentification with the selected encryption for password and the user profil used for the login
+	 * 
+	 * @return configured authentification service
+	 */
 	@Bean
     public DaoAuthenticationProvider authenticationProvider() {
-<span class="fc" id="L33">        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();</span>
-<span class="fc" id="L34">        authProvider.setUserDetailsService(userDetailsService());</span>
-<span class="fc" id="L35">        authProvider.setPasswordEncoder(passwordEncoder());</span>
-<span class="fc" id="L36">        return authProvider;</span>
+<span class="fc" id="L64">        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();</span>
+<span class="fc" id="L65">        authProvider.setUserDetailsService(userDetailsService());</span>
+<span class="fc" id="L66">        authProvider.setPasswordEncoder(passwordEncoder());</span>
+<span class="fc" id="L67">        return authProvider;</span>
     }
 	
+	/**
+	 * Configure the custom user service
+	 * 
+	 * @return configured user service
+	 */
 	@Bean
     public MyUserDetailsService userDetailsService() {
-<span class="fc" id="L41">        return new MyUserDetailsService();</span>
+<span class="fc" id="L77">        return new MyUserDetailsService();</span>
     }
 	
+	/**
+	 * Configure the password encryption for the users
+	 * 
+	 * @return configured encryption service
+	 */
 	@Bean
     public BCryptPasswordEncoder passwordEncoder() {
-<span class="fc" id="L46">        return new BCryptPasswordEncoder();</span>
+<span class="fc" id="L87">        return new BCryptPasswordEncoder();</span>
     } 
 
 }

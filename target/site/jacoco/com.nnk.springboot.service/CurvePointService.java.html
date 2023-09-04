@@ -11,13 +11,19 @@ import org.springframework.stereotype.Service;
 import com.nnk.springboot.domain.CurvePoint;
 import com.nnk.springboot.repositories.CurvePointRepository;
 
+/**
+ * Implementation the CRUD for the CurvePoint Entity
+ * 
+ * @author Simon
+ *
+ */
 @Service
-<span class="fc" id="L15">public class CurvePointService {</span>
+<span class="fc" id="L21">public class CurvePointService {</span>
 	
 	@Autowired
 	private CurvePointRepository curvePointRepository;
 	
-<span class="fc" id="L20">	private static Logger logger = LoggerFactory.getLogger(CurvePointService.class);</span>
+<span class="fc" id="L26">	private static Logger logger = LoggerFactory.getLogger(CurvePointService.class);</span>
 	
 	/**
 	 * Extract all CurvePoint from the Database
@@ -25,20 +31,20 @@ import com.nnk.springboot.repositories.CurvePointRepository;
 	 * @return List of all CurvePoints from the Databse
 	 */
 	public List&lt;CurvePoint&gt; getAllCurvePoints() {
-<span class="fc" id="L28">		logger.info(&quot;call getAllRule&quot;);</span>
-<span class="fc" id="L29">		return curvePointRepository.findAll();</span>
+<span class="fc" id="L34">		logger.info(&quot;call getAllRule&quot;);</span>
+<span class="fc" id="L35">		return curvePointRepository.findAll();</span>
 	}
 
 	
 	/**
-	 * Convert Optional&lt;CurvePoint&gt; to CurvePoint
+	 * Convert Optional CurvePoint to CurvePoint
 	 * 
 	 * @param option to convert
 	 * @return CurvePoint or null
 	 */
 	public CurvePoint convertOptionalToCurvePoint(Optional&lt;CurvePoint&gt; option) {
-<span class="fc" id="L40">		logger.info(&quot;call convertOptionalToCurvePoint&quot;);</span>
-<span class="fc" id="L41">		return option.orElse(null);</span>
+<span class="fc" id="L46">		logger.info(&quot;call convertOptionalToCurvePoint&quot;);</span>
+<span class="fc" id="L47">		return option.orElse(null);</span>
 		
 	}
 
@@ -50,31 +56,31 @@ import com.nnk.springboot.repositories.CurvePointRepository;
 	 * @return CurvePoint
 	 */
 	public CurvePoint getCurvePointById(Integer id) {
-<span class="fc" id="L53">		logger.info(&quot;call getCurvePointById&quot;);		</span>
-<span class="fc" id="L54">		return convertOptionalToCurvePoint(curvePointRepository.findById(id));		</span>
+<span class="fc" id="L59">		logger.info(&quot;call getCurvePointById&quot;);		</span>
+<span class="fc" id="L60">		return convertOptionalToCurvePoint(curvePointRepository.findById(id));		</span>
 	}
 	
 	/**
 	 * Add CurvePoint to DB
 	 * 
-	 * @param curvePoint
+	 * @param curvePoint to add
 	 * @return saved curvePoint
 	 */
 	public CurvePoint addCurvePoint(CurvePoint curvePoint) {
-<span class="fc" id="L64">		logger.info(&quot;call addCurvePoint&quot;);	</span>
-<span class="fc" id="L65">		return curvePointRepository.save(curvePoint);</span>
+<span class="fc" id="L70">		logger.info(&quot;call addCurvePoint&quot;);	</span>
+<span class="fc" id="L71">		return curvePointRepository.save(curvePoint);</span>
 	}
 	
 	
 	/**
 	 * Update an existing CurvePoint
 	 * 
-	 * @param CurvePoint
+	 * @param curvePoint to update
 	 * @return updated CurvePoint
 	 */
 	public CurvePoint updateCurvePoint(CurvePoint curvePoint) {
-<span class="fc" id="L76">		logger.info(&quot;call updateCurvePoint&quot;);	</span>
-<span class="fc" id="L77">		return curvePointRepository.save(curvePoint);</span>
+<span class="fc" id="L82">		logger.info(&quot;call updateCurvePoint&quot;);	</span>
+<span class="fc" id="L83">		return curvePointRepository.save(curvePoint);</span>
 	}
 	
 	/**
@@ -83,9 +89,9 @@ import com.nnk.springboot.repositories.CurvePointRepository;
 	 * @param id of the CurvePoint to delete
 	 */
 	public void deleteCurvePoint(Integer id) {
-<span class="fc" id="L86">		logger.info(&quot;call deleteCurvePoint&quot;);	</span>
-<span class="fc" id="L87">		curvePointRepository.deleteById(id);		</span>
-<span class="fc" id="L88">	}</span>
+<span class="fc" id="L92">		logger.info(&quot;call deleteCurvePoint&quot;);	</span>
+<span class="fc" id="L93">		curvePointRepository.deleteById(id);		</span>
+<span class="fc" id="L94">	}</span>
 		
 
 }

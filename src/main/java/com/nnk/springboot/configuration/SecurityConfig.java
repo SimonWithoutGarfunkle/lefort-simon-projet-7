@@ -9,18 +9,44 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import com.nnk.springboot.service.MyUserDetailsService;
 
-import static org.springframework.security.config.Customizer.withDefaults;
-
+/**
+ * Configure the security of the application
+ * @author Simon
+ *
+ */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 	
+	/**
+	 * Configures the HTTP security filters for the application. This method defines security rules,
+	 * security filters, and authentication providers for the application's security configuration.
+	 *
+	 * @param http The HTTP security configuration.
+	 * @return The configured security filter chain.
+	 * @throws Exception If an error occurs during configuration.
+	 */
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-		http.authorizeHttpRequests((req) -> req.requestMatchers("/dashboard").authenticated()
+		http.authorizeHttpRequests((req) -> req.requestMatchers("/bidList/**").authenticated()
+				.requestMatchers("/curvePoint/**").authenticated()
+				.requestMatchers("/rating/**").authenticated()
+				.requestMatchers("/trade/**").authenticated()
+				.requestMatchers("/rule/**").authenticated()
+				.requestMatchers("/rule/**").authenticated()
+				.requestMatchers("/user/**").hasRole("ADMIN")
 				.anyRequest().permitAll())											
-							                .formLogin(withDefaults());                
+				.formLogin(form -> form
+		                .defaultSuccessUrl("/bidList/list")
+		                .failureUrl("/login?error"))						                
+		        .logout((logout) ->
+							logout.logoutUrl("/app-logout")
+								.deleteCookies("remove")
+								.logoutSuccessUrl("/login")
+								.invalidateHttpSession(true)
+								.clearAuthentication(true)
+								.permitAll());              
 							                
 		return http.build();      
 							                
@@ -28,6 +54,11 @@ public class SecurityConfig {
 	}
 	
 	
+	/**
+	 * Configure the authentification with the selected encryption for password and the user profil used for the login
+	 * 
+	 * @return configured authentification service
+	 */
 	@Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
@@ -36,11 +67,21 @@ public class SecurityConfig {
         return authProvider;
     }
 	
+	/**
+	 * Configure the custom user service
+	 * 
+	 * @return configured user service
+	 */
 	@Bean
     public MyUserDetailsService userDetailsService() {
         return new MyUserDetailsService();
     }
 	
+	/**
+	 * Configure the password encryption for the users
+	 * 
+	 * @return configured encryption service
+	 */
 	@Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

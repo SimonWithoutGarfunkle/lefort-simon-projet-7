@@ -11,13 +11,19 @@ import org.springframework.stereotype.Service;
 import com.nnk.springboot.domain.Trade;
 import com.nnk.springboot.repositories.TradeRepository;
 
+/**
+ * Implementation the CRUD for the Trade Entity
+ * 
+ * @author Simon
+ *
+ */
 @Service
-<span class="fc" id="L15">public class TradeService {</span>
+<span class="fc" id="L21">public class TradeService {</span>
 	
 	@Autowired
 	private TradeRepository tradeRepository;
 	
-<span class="fc" id="L20">	private static Logger logger = LoggerFactory.getLogger(TradeService.class);</span>
+<span class="fc" id="L26">	private static Logger logger = LoggerFactory.getLogger(TradeService.class);</span>
 	
 	/**
 	 * Extract all Trade from the Database
@@ -25,20 +31,20 @@ import com.nnk.springboot.repositories.TradeRepository;
 	 * @return List of all Trades from the Databse
 	 */
 	public List&lt;Trade&gt; getAllTrades() {
-<span class="fc" id="L28">		logger.info(&quot;call getAllRule&quot;);</span>
-<span class="fc" id="L29">		return tradeRepository.findAll();</span>
+<span class="fc" id="L34">		logger.info(&quot;call getAllRule&quot;);</span>
+<span class="fc" id="L35">		return tradeRepository.findAll();</span>
 	}
 
 	
 	/**
-	 * Convert Optional&lt;Trade&gt; to Trade
+	 * Convert Optional Trade to Trade
 	 * 
 	 * @param option to convert
 	 * @return Trade or null
 	 */
 	public Trade convertOptionalToTrade(Optional&lt;Trade&gt; option) {
-<span class="fc" id="L40">		logger.info(&quot;call convertOptionalToTrade&quot;);</span>
-<span class="fc" id="L41">		return option.orElse(null);</span>
+<span class="fc" id="L46">		logger.info(&quot;call convertOptionalToTrade&quot;);</span>
+<span class="fc" id="L47">		return option.orElse(null);</span>
 		
 	}
 
@@ -50,31 +56,31 @@ import com.nnk.springboot.repositories.TradeRepository;
 	 * @return Trade
 	 */
 	public Trade getTradeById(Integer id) {
-<span class="fc" id="L53">		logger.info(&quot;call getTradeById&quot;);		</span>
-<span class="fc" id="L54">		return convertOptionalToTrade(tradeRepository.findById(id));		</span>
+<span class="fc" id="L59">		logger.info(&quot;call getTradeById&quot;);		</span>
+<span class="fc" id="L60">		return convertOptionalToTrade(tradeRepository.findById(id));		</span>
 	}
 	
 	/**
 	 * Add Trade to DB
 	 * 
-	 * @param trade
+	 * @param trade to add
 	 * @return saved trade
 	 */
 	public Trade addTrade(Trade trade) {
-<span class="fc" id="L64">		logger.info(&quot;call addTrade&quot;);	</span>
-<span class="fc" id="L65">		return tradeRepository.save(trade);</span>
+<span class="fc" id="L70">		logger.info(&quot;call addTrade&quot;);	</span>
+<span class="fc" id="L71">		return tradeRepository.save(trade);</span>
 	}
 	
 	
 	/**
 	 * Update an existing Trade
 	 * 
-	 * @param Trade
+	 * @param trade to update
 	 * @return updated Trade
 	 */
 	public Trade updateTrade(Trade trade) {
-<span class="fc" id="L76">		logger.info(&quot;call updateTrade&quot;);	</span>
-<span class="fc" id="L77">		return tradeRepository.save(trade);</span>
+<span class="fc" id="L82">		logger.info(&quot;call updateTrade&quot;);	</span>
+<span class="fc" id="L83">		return tradeRepository.save(trade);</span>
 	}
 	
 	/**
@@ -83,9 +89,9 @@ import com.nnk.springboot.repositories.TradeRepository;
 	 * @param id of the Trade to delete
 	 */
 	public void deleteTrade(Integer id) {
-<span class="fc" id="L86">		logger.info(&quot;call deleteTrade&quot;);	</span>
-<span class="fc" id="L87">		tradeRepository.deleteById(id);		</span>
-<span class="fc" id="L88">	}</span>
+<span class="fc" id="L92">		logger.info(&quot;call deleteTrade&quot;);	</span>
+<span class="fc" id="L93">		tradeRepository.deleteById(id);		</span>
+<span class="fc" id="L94">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

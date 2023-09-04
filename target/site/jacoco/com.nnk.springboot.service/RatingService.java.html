@@ -37,7 +37,7 @@ import com.nnk.springboot.repositories.RatingRepository;
 	}
 	
 	/**
-	 * Convert Optional&lt;Rating&gt; to Rating
+	 * Convert Optional Rating to Rating
 	 * 
 	 * @param option to test
 	 * @return Rating or null
@@ -61,7 +61,7 @@ import com.nnk.springboot.repositories.RatingRepository;
 	/**
 	 * Add rating to DB
 	 * 
-	 * @param rating
+	 * @param rating to add
 	 * @return saved rating
 	 */
 	public Rating addRating(Rating rating) {
@@ -73,7 +73,7 @@ import com.nnk.springboot.repositories.RatingRepository;
 	/**
 	 * Update an existing rating
 	 * 
-	 * @param rating
+	 * @param rating to update
 	 * @return updated rating
 	 */
 	public Rating updateRating(Rating rating) {
@@ -108,7 +108,7 @@ import com.nnk.springboot.repositories.RatingRepository;
      * Check the data validity
      * 
      * @param value to test
-     * @param fieldName
+     * @param fieldName to test
      * @param min integer value accepted
      * @param max integer value accepted
      */

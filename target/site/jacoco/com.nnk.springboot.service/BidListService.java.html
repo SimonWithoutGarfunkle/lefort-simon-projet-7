@@ -11,13 +11,19 @@ import org.springframework.stereotype.Service;
 import com.nnk.springboot.domain.BidList;
 import com.nnk.springboot.repositories.BidListRepository;
 
+/**
+ * Implementation the CRUD for the BidList Entity
+ * 
+ * @author Simon
+ *
+ */
 @Service
-<span class="fc" id="L15">public class BidListService {</span>
+<span class="fc" id="L21">public class BidListService {</span>
 	
 	@Autowired
 	private BidListRepository bidListRepository;
 	
-<span class="fc" id="L20">	private static Logger logger = LoggerFactory.getLogger(BidListService.class);</span>
+<span class="fc" id="L26">	private static Logger logger = LoggerFactory.getLogger(BidListService.class);</span>
 	
 	/**
 	 * Extract all BidList from the Database
@@ -25,20 +31,20 @@ import com.nnk.springboot.repositories.BidListRepository;
 	 * @return List of all BidLists from the Databse
 	 */
 	public List&lt;BidList&gt; getAllBidLists() {
-<span class="fc" id="L28">		logger.info(&quot;call getAllRule&quot;);</span>
-<span class="fc" id="L29">		return bidListRepository.findAll();</span>
+<span class="fc" id="L34">		logger.info(&quot;call getAllRule&quot;);</span>
+<span class="fc" id="L35">		return bidListRepository.findAll();</span>
 	}
 
 	
 	/**
-	 * Convert Optional&lt;BidList&gt; to BidList
+	 * Convert Optional BidList to BidList
 	 * 
 	 * @param option to convert
 	 * @return BidList or null
 	 */
 	public BidList convertOptionalToBidList(Optional&lt;BidList&gt; option) {
-<span class="fc" id="L40">		logger.info(&quot;call convertOptionalToBidList&quot;);</span>
-<span class="fc" id="L41">		return option.orElse(null);</span>
+<span class="fc" id="L46">		logger.info(&quot;call convertOptionalToBidList&quot;);</span>
+<span class="fc" id="L47">		return option.orElse(null);</span>
 		
 	}
 
@@ -50,31 +56,31 @@ import com.nnk.springboot.repositories.BidListRepository;
 	 * @return BidList
 	 */
 	public BidList getBidListById(Integer id) {
-<span class="fc" id="L53">		logger.info(&quot;call getBidListById&quot;);		</span>
-<span class="fc" id="L54">		return convertOptionalToBidList(bidListRepository.findById(id));		</span>
+<span class="fc" id="L59">		logger.info(&quot;call getBidListById&quot;);		</span>
+<span class="fc" id="L60">		return convertOptionalToBidList(bidListRepository.findById(id));		</span>
 	}
 	
 	/**
 	 * Add BidList to DB
 	 * 
-	 * @param bidList
+	 * @param bidList to add
 	 * @return saved bidList
 	 */
 	public BidList addBidList(BidList bidList) {
-<span class="fc" id="L64">		logger.info(&quot;call addBidList&quot;);	</span>
-<span class="fc" id="L65">		return bidListRepository.save(bidList);</span>
+<span class="fc" id="L70">		logger.info(&quot;call addBidList&quot;);	</span>
+<span class="fc" id="L71">		return bidListRepository.save(bidList);</span>
 	}
 	
 	
 	/**
 	 * Update an existing BidList
 	 * 
-	 * @param BidList
+	 * @param bidList to update
 	 * @return updated BidList
 	 */
 	public BidList updateBidList(BidList bidList) {
-<span class="fc" id="L76">		logger.info(&quot;call updateBidList&quot;);	</span>
-<span class="fc" id="L77">		return bidListRepository.save(bidList);</span>
+<span class="fc" id="L82">		logger.info(&quot;call updateBidList&quot;);	</span>
+<span class="fc" id="L83">		return bidListRepository.save(bidList);</span>
 	}
 	
 	/**
@@ -83,9 +89,9 @@ import com.nnk.springboot.repositories.BidListRepository;
 	 * @param id of the BidList to delete
 	 */
 	public void deleteBidList(Integer id) {
-<span class="fc" id="L86">		logger.info(&quot;call deleteBidList&quot;);	</span>
-<span class="fc" id="L87">		bidListRepository.deleteById(id);		</span>
-<span class="fc" id="L88">	}</span>
+<span class="fc" id="L92">		logger.info(&quot;call deleteBidList&quot;);	</span>
+<span class="fc" id="L93">		bidListRepository.deleteById(id);		</span>
+<span class="fc" id="L94">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

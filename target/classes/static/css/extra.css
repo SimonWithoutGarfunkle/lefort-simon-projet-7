@@ -1,0 +1,8 @@
+@charset "ISO-8859-1";
+.error-message {
+  color: red;
+}
+
+.info-message {
+  color:  #4CAF50;
+}
