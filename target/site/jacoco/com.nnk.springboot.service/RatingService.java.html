@@ -113,7 +113,7 @@ import com.nnk.springboot.repositories.RatingRepository;
      * @param max integer value accepted
      */
 	private void validateIntegerInRange(Integer value, String fieldName, int min, int max) {
-<span class="pc bpc" id="L116" title="1 of 6 branches missed.">        if (value == null || value &lt; min || value &gt; max) {</span>
+<span class="fc bfc" id="L116" title="All 6 branches covered.">        if (value == null || value &lt; min || value &gt; max) {</span>
 <span class="fc" id="L117">            throw new RatingException(fieldName + &quot; must be an integer between &quot; + min + &quot; and &quot; + max + &quot;.&quot;);</span>
         }
 <span class="fc" id="L119">    }</span>

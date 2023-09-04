@@ -31,61 +31,61 @@ import jakarta.validation.Valid;
 
     @RequestMapping(&quot;/ruleName/list&quot;)
     public String home(Model model) {
-<span class="nc" id="L34">    	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();</span>
-<span class="nc" id="L35">        String remoteUser = authentication.getName();</span>
-<span class="nc" id="L36">        model.addAttribute(&quot;remoteUser&quot;, remoteUser);</span>
+<span class="fc" id="L34">    	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();</span>
+<span class="fc" id="L35">        String remoteUser = authentication.getName();</span>
+<span class="fc" id="L36">        model.addAttribute(&quot;remoteUser&quot;, remoteUser);</span>
         
-<span class="nc" id="L38">        List&lt;RuleName&gt; rules = ruleNameService.getAllRules();</span>
-<span class="nc" id="L39">        model.addAttribute(&quot;ruleNames&quot;, rules);</span>
-<span class="nc" id="L40">        return &quot;ruleName/list&quot;;</span>
+<span class="fc" id="L38">        List&lt;RuleName&gt; rules = ruleNameService.getAllRules();</span>
+<span class="fc" id="L39">        model.addAttribute(&quot;ruleNames&quot;, rules);</span>
+<span class="fc" id="L40">        return &quot;ruleName/list&quot;;</span>
     }
 
     @GetMapping(&quot;/ruleName/add&quot;)
     public String addRuleForm(RuleName ruleName) {
-<span class="nc" id="L45">        return &quot;ruleName/add&quot;;</span>
+<span class="fc" id="L45">        return &quot;ruleName/add&quot;;</span>
     }
 
     @PostMapping(&quot;/ruleName/validate&quot;)
     public String validate(@Valid RuleName ruleName, BindingResult result, Model model) {
         try {
-<span class="nc" id="L51">        	ruleNameService.validateRuleName(ruleName);</span>
-<span class="nc" id="L52">        } catch (RuleNameException e) {</span>
-<span class="nc" id="L53">        	logger.error(e.getMessage());</span>
-<span class="nc" id="L54">    		model.addAttribute(&quot;errorMessage&quot;, e.getMessage());</span>
-<span class="nc" id="L55">    		return &quot;ruleName/add&quot;;</span>
+<span class="fc" id="L51">        	ruleNameService.validateRuleName(ruleName);</span>
+<span class="fc" id="L52">        } catch (RuleNameException e) {</span>
+<span class="fc" id="L53">        	logger.error(e.getMessage());</span>
+<span class="fc" id="L54">    		model.addAttribute(&quot;errorMessage&quot;, e.getMessage());</span>
+<span class="fc" id="L55">    		return &quot;ruleName/add&quot;;</span>
         	
-<span class="nc" id="L57">        }</span>
+<span class="fc" id="L57">        }</span>
         
-<span class="nc" id="L59">        ruleNameService.addRuleName(ruleName);</span>
-<span class="nc" id="L60">        return &quot;redirect:/ruleName/list&quot;;</span>
+<span class="fc" id="L59">        ruleNameService.addRuleName(ruleName);</span>
+<span class="fc" id="L60">        return &quot;redirect:/ruleName/list&quot;;</span>
     }
 
     @GetMapping(&quot;/ruleName/update/{id}&quot;)
     public String showUpdateForm(@PathVariable(&quot;id&quot;) Integer id, Model model) {
-<span class="nc" id="L65">        RuleName ruleToUpdate = ruleNameService.getRuleNameById(id);</span>
-<span class="nc" id="L66">        model.addAttribute(&quot;ruleName&quot;, ruleToUpdate);</span>
-<span class="nc" id="L67">        return &quot;ruleName/update&quot;;</span>
+<span class="fc" id="L65">        RuleName ruleToUpdate = ruleNameService.getRuleNameById(id);</span>
+<span class="fc" id="L66">        model.addAttribute(&quot;ruleName&quot;, ruleToUpdate);</span>
+<span class="fc" id="L67">        return &quot;ruleName/update&quot;;</span>
     }
 
     @PostMapping(&quot;/ruleName/update/{id}&quot;)
     public String updateRuleName(@PathVariable(&quot;id&quot;) Integer id, @Valid RuleName ruleName,
                              BindingResult result, Model model) {
     	try {
-<span class="nc" id="L74">        	ruleNameService.validateRuleName(ruleName);</span>
-<span class="nc" id="L75">        } catch (RuleNameException e) {</span>
-<span class="nc" id="L76">        	logger.error(e.getMessage());</span>
-<span class="nc" id="L77">    		model.addAttribute(&quot;errorMessage&quot;, e.getMessage());</span>
-<span class="nc" id="L78">    		return &quot;ruleName/update&quot;;</span>
+<span class="fc" id="L74">        	ruleNameService.validateRuleName(ruleName);</span>
+<span class="fc" id="L75">        } catch (RuleNameException e) {</span>
+<span class="fc" id="L76">        	logger.error(e.getMessage());</span>
+<span class="fc" id="L77">    		model.addAttribute(&quot;errorMessage&quot;, e.getMessage());</span>
+<span class="fc" id="L78">    		return &quot;ruleName/update&quot;;</span>
         	
-<span class="nc" id="L80">        }</span>
-<span class="nc" id="L81">        ruleNameService.updateRuleName(ruleName);</span>
-<span class="nc" id="L82">    	return &quot;redirect:/ruleName/list&quot;;</span>
+<span class="fc" id="L80">        }</span>
+<span class="fc" id="L81">        ruleNameService.updateRuleName(ruleName);</span>
+<span class="fc" id="L82">    	return &quot;redirect:/ruleName/list&quot;;</span>
     }
 
     @GetMapping(&quot;/ruleName/delete/{id}&quot;)
     public String deleteRuleName(@PathVariable(&quot;id&quot;) Integer id, Model model) {
-<span class="nc" id="L87">        ruleNameService.deleteRuleName(id);</span>
-<span class="nc" id="L88">        return &quot;redirect:/ruleName/list&quot;;</span>
+<span class="fc" id="L87">        ruleNameService.deleteRuleName(id);</span>
+<span class="fc" id="L88">        return &quot;redirect:/ruleName/list&quot;;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

@@ -2,6 +2,8 @@ package com.nnk.springboot.domain;
 
 import java.sql.Timestamp;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,11 +13,12 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "bidlist")
+@DynamicUpdate
 public class BidList {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "bid_list_id")
-	Integer BidListId;
+	Integer bidListId;
 	
 	String account;
 	
@@ -39,14 +42,11 @@ public class BidList {
 	String dealType;
 	String sourceListId;
 	String side;
-	
-	
+		
 	
 	public BidList() {
 		super();
 	}
-	
-	
 	
 	
 	public BidList(String account, String type, Double bidQuantity) {
@@ -57,13 +57,11 @@ public class BidList {
 	}
 
 
-
-
 	public Integer getBidListId() {
-		return BidListId;
+		return bidListId;
 	}
-	public void setBidListId(Integer bidListId) {
-		BidListId = bidListId;
+	public void setBidListId(Integer bidId) {
+		this.bidListId = bidId;
 	}
 	public String getAccount() {
 		return account;

@@ -36,19 +36,21 @@ import com.nnk.springboot.service.MyUserDetailsService;
 <span class="fc" id="L36">				.requestMatchers(&quot;/rule/**&quot;).authenticated()</span>
 <span class="fc" id="L37">				.requestMatchers(&quot;/rule/**&quot;).authenticated()</span>
 <span class="fc" id="L38">				.requestMatchers(&quot;/user/**&quot;).hasRole(&quot;ADMIN&quot;)</span>
-<span class="fc" id="L39">				.anyRequest().permitAll())											</span>
-<span class="fc" id="L40">				.formLogin(form -&gt; form</span>
-<span class="fc" id="L41">		                .defaultSuccessUrl(&quot;/bidList/list&quot;)</span>
-<span class="fc" id="L42">		                .failureUrl(&quot;/login?error&quot;))						                </span>
-<span class="fc" id="L43">		        .logout((logout) -&gt;</span>
-<span class="fc" id="L44">							logout.logoutUrl(&quot;/app-logout&quot;)</span>
-<span class="fc" id="L45">								.deleteCookies(&quot;remove&quot;)</span>
-<span class="fc" id="L46">								.logoutSuccessUrl(&quot;/login&quot;)</span>
-<span class="fc" id="L47">								.invalidateHttpSession(true)</span>
-<span class="fc" id="L48">								.clearAuthentication(true)</span>
-<span class="fc" id="L49">								.permitAll());              </span>
+<span class="fc" id="L39">				.requestMatchers(&quot;/error&quot;).permitAll()</span>
+<span class="fc" id="L40">				.anyRequest().permitAll())											</span>
+<span class="fc" id="L41">				.formLogin(form -&gt; form</span>
+<span class="fc" id="L42">						.loginPage(&quot;/login&quot;)</span>
+<span class="fc" id="L43">						.defaultSuccessUrl(&quot;/bidList/list&quot;)</span>
+<span class="fc" id="L44">		                .failureUrl(&quot;/login?error&quot;))						                </span>
+<span class="fc" id="L45">		        .logout((logout) -&gt;</span>
+<span class="fc" id="L46">							logout.logoutUrl(&quot;/app-logout&quot;)</span>
+<span class="fc" id="L47">								.deleteCookies(&quot;remove&quot;)</span>
+<span class="fc" id="L48">								.logoutSuccessUrl(&quot;/login&quot;)</span>
+<span class="fc" id="L49">								.invalidateHttpSession(true)</span>
+<span class="fc" id="L50">								.clearAuthentication(true)</span>
+<span class="fc" id="L51">								.permitAll());              </span>
 							                
-<span class="fc" id="L51">		return http.build();      </span>
+<span class="fc" id="L53">		return http.build();      </span>
 							                
 							                
 	}
@@ -61,10 +63,10 @@ import com.nnk.springboot.service.MyUserDetailsService;
 	 */
 	@Bean
     public DaoAuthenticationProvider authenticationProvider() {
-<span class="fc" id="L64">        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();</span>
-<span class="fc" id="L65">        authProvider.setUserDetailsService(userDetailsService());</span>
-<span class="fc" id="L66">        authProvider.setPasswordEncoder(passwordEncoder());</span>
-<span class="fc" id="L67">        return authProvider;</span>
+<span class="fc" id="L66">        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();</span>
+<span class="fc" id="L67">        authProvider.setUserDetailsService(userDetailsService());</span>
+<span class="fc" id="L68">        authProvider.setPasswordEncoder(passwordEncoder());</span>
+<span class="fc" id="L69">        return authProvider;</span>
     }
 	
 	/**
@@ -74,7 +76,7 @@ import com.nnk.springboot.service.MyUserDetailsService;
 	 */
 	@Bean
     public MyUserDetailsService userDetailsService() {
-<span class="fc" id="L77">        return new MyUserDetailsService();</span>
+<span class="fc" id="L79">        return new MyUserDetailsService();</span>
     }
 	
 	/**
@@ -84,7 +86,7 @@ import com.nnk.springboot.service.MyUserDetailsService;
 	 */
 	@Bean
     public BCryptPasswordEncoder passwordEncoder() {
-<span class="fc" id="L87">        return new BCryptPasswordEncoder();</span>
+<span class="fc" id="L89">        return new BCryptPasswordEncoder();</span>
     } 
 
 }

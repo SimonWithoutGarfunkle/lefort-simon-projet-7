@@ -2,6 +2,8 @@ package com.nnk.springboot.domain;
 
 import java.sql.Timestamp;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,6 +13,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "curvepoint")
+@DynamicUpdate
 public class CurvePoint {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

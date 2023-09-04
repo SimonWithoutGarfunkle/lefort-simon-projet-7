@@ -8,9 +8,12 @@ import jakarta.persistence.Table;
 
 import java.sql.Timestamp;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 
 @Entity
 @Table(name = "trade")
+@DynamicUpdate
 public class Trade {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

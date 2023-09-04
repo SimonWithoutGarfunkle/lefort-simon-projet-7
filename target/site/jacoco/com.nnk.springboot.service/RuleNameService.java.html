@@ -113,7 +113,7 @@ import com.nnk.springboot.repositories.RuleNameRepository;
 	 * @param min string lenghth requiered
 	 */
 	private void validateStringRuleName(String value, String fieldName, int min) {
-<span class="pc bpc" id="L116" title="1 of 4 branches missed.">		if (value == null || value.trim().length()&lt;min ) {</span>
+<span class="fc bfc" id="L116" title="All 4 branches covered.">		if (value == null || value.trim().length()&lt;min ) {</span>
 <span class="fc" id="L117">			throw new RuleNameException(fieldName + &quot; must be a text of at least &quot; + min + &quot; characters.&quot;);</span>
 		}				
 <span class="fc" id="L119">	}</span>

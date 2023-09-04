@@ -36,9 +36,11 @@ public class SecurityConfig {
 				.requestMatchers("/rule/**").authenticated()
 				.requestMatchers("/rule/**").authenticated()
 				.requestMatchers("/user/**").hasRole("ADMIN")
+				.requestMatchers("/error").permitAll()
 				.anyRequest().permitAll())											
 				.formLogin(form -> form
-		                .defaultSuccessUrl("/bidList/list")
+						.loginPage("/login")
+						.defaultSuccessUrl("/bidList/list")
 		                .failureUrl("/login?error"))						                
 		        .logout((logout) ->
 							logout.logoutUrl("/app-logout")

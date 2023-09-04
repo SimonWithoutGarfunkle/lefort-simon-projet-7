@@ -65,6 +65,8 @@ public class UserController {
         model.addAttribute("users", userRepository.findAll());
         return "redirect:/user/list";
     }
+    
+    
 
     @GetMapping("/user/delete/{id}")
     public String deleteUser(@PathVariable("id") Integer id, Model model) {

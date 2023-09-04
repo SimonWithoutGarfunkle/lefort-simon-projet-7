@@ -3,6 +3,7 @@ package com.nnk.springboot.domain;
 import java.util.Arrays;
 import java.util.Collection;
 
+import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,6 +18,7 @@ import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "users")
+@DynamicUpdate
 public class User implements UserDetails {
 	
 	private static final long serialVersionUID = 1L;
@@ -37,8 +39,26 @@ public class User implements UserDetails {
     
     @NotBlank(message = "Role is mandatory")
     private String role;
+    
+    
+    
 
-    public Integer getUserId() {
+    public User() {
+		super();
+	}
+
+	public User(@NotBlank(message = "Username is mandatory") String username,
+			@NotBlank(message = "Password is mandatory") String password,
+			@NotBlank(message = "FullName is mandatory") String fullname,
+			@NotBlank(message = "Role is mandatory") String role) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.fullname = fullname;
+		this.role = role;
+	}
+
+	public Integer getUserId() {
         return userId;
     }
 
