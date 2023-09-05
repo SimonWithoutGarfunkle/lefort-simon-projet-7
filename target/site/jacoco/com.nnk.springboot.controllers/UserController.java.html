@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">spring-boot-skeleton</a> &gt; <a href="index.source.html" class="el_package">com.nnk.springboot.controllers</a> &gt; <span class="el_source">UserController.java</span></div><h1>UserController.java</h1><pre class="source lang-java linenums">package com.nnk.springboot.controllers;
 
 import com.nnk.springboot.domain.User;
+import com.nnk.springboot.exceptions.UserException;
 import com.nnk.springboot.repositories.UserRepository;
+import com.nnk.springboot.service.UserService;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -15,65 +20,94 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import jakarta.validation.Valid;
 
 @Controller
-<span class="fc" id="L18">public class UserController {</span>
+<span class="fc" id="L23">public class UserController {</span>
     @Autowired
     private UserRepository userRepository;
+    
+    @Autowired
+    private UserService userService;
+    
+<span class="fc" id="L30">    private static Logger logger = LoggerFactory.getLogger(UserController.class);</span>
 
     @RequestMapping(&quot;/user/list&quot;)
     public String home(Model model)
     {
-<span class="fc" id="L25">        model.addAttribute(&quot;users&quot;, userRepository.findAll());</span>
-<span class="fc" id="L26">        return &quot;user/list&quot;;</span>
+<span class="fc" id="L35">        model.addAttribute(&quot;users&quot;, userRepository.findAll());</span>
+<span class="fc" id="L36">        return &quot;user/list&quot;;</span>
     }
 
     @GetMapping(&quot;/user/add&quot;)
     public String addUser(User bid) {
-<span class="fc" id="L31">        return &quot;user/add&quot;;</span>
+<span class="fc" id="L41">        return &quot;user/add&quot;;</span>
     }
 
     @PostMapping(&quot;/user/validate&quot;)
     public String validate(@Valid User user, BindingResult result, Model model) {
-<span class="fc bfc" id="L36" title="All 2 branches covered.">        if (!result.hasErrors()) {</span>
-<span class="fc" id="L37">            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();</span>
-<span class="fc" id="L38">            user.setPassword(encoder.encode(user.getPassword()));</span>
-<span class="fc" id="L39">            userRepository.save(user);</span>
-<span class="fc" id="L40">            model.addAttribute(&quot;users&quot;, userRepository.findAll());</span>
-<span class="fc" id="L41">            return &quot;redirect:/user/list&quot;;</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">        if (!result.hasErrors()) {</span>
+        	try {
+<span class="fc" id="L48">        		userService.validateNewUserName(user);</span>
+<span class="nc" id="L49">        	} catch (UserException e) {</span>
+<span class="nc" id="L50">        		logger.error(e.getMessage());</span>
+<span class="nc" id="L51">        		model.addAttribute(&quot;errorMessage&quot;, e.getMessage());</span>
+<span class="nc" id="L52">        		return &quot;user/add&quot;;</span>
+<span class="fc" id="L53">        	}</span>
+        	
+        	
+        	try {
+<span class="fc" id="L57">        		userService.validatePasswordUser(user);</span>
+<span class="nc" id="L58">        	} catch (UserException e) {</span>
+<span class="nc" id="L59">        		logger.error(e.getMessage());</span>
+<span class="nc" id="L60">        		model.addAttribute(&quot;errorMessage&quot;, e.getMessage());</span>
+<span class="nc" id="L61">        		return &quot;user/add&quot;;</span>
+<span class="fc" id="L62">        	}</span>
+        	
+<span class="fc" id="L64">            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();</span>
+<span class="fc" id="L65">            user.setPassword(encoder.encode(user.getPassword()));</span>
+<span class="fc" id="L66">            userRepository.save(user);</span>
+<span class="fc" id="L67">            model.addAttribute(&quot;users&quot;, userRepository.findAll());</span>
+<span class="fc" id="L68">            return &quot;redirect:/user/list&quot;;</span>
         }
-<span class="fc" id="L43">        return &quot;user/add&quot;;</span>
+<span class="fc" id="L70">        return &quot;user/add&quot;;</span>
     }
 
     @GetMapping(&quot;/user/update/{id}&quot;)
     public String showUpdateForm(@PathVariable(&quot;id&quot;) Integer id, Model model) {
-<span class="pc" id="L48">        User user = userRepository.findById(id).orElseThrow(() -&gt; new IllegalArgumentException(&quot;Invalid user Id:&quot; + id));</span>
-<span class="fc" id="L49">        user.setPassword(&quot;&quot;);</span>
-<span class="fc" id="L50">        model.addAttribute(&quot;user&quot;, user);</span>
-<span class="fc" id="L51">        return &quot;user/update&quot;;</span>
+<span class="pc" id="L75">        User user = userRepository.findById(id).orElseThrow(() -&gt; new IllegalArgumentException(&quot;Invalid user Id:&quot; + id));</span>
+<span class="fc" id="L76">        user.setPassword(&quot;&quot;);</span>
+<span class="fc" id="L77">        model.addAttribute(&quot;user&quot;, user);</span>
+<span class="fc" id="L78">        return &quot;user/update&quot;;</span>
     }
 
     @PostMapping(&quot;/user/update/{id}&quot;)
     public String updateUser(@PathVariable(&quot;id&quot;) Integer id, @Valid User user,
                              BindingResult result, Model model) {
-<span class="fc bfc" id="L57" title="All 2 branches covered.">        if (result.hasErrors()) {</span>
-<span class="fc" id="L58">            return &quot;user/update&quot;;</span>
+<span class="pc bpc" id="L84" title="1 of 2 branches missed.">        if (result.hasErrors()) {</span>
+<span class="nc" id="L85">            return &quot;user/update&quot;;</span>
         }
-
-<span class="fc" id="L61">        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();</span>
-<span class="fc" id="L62">        user.setPassword(encoder.encode(user.getPassword()));</span>
-<span class="fc" id="L63">        user.setUserId(id);</span>
-<span class="fc" id="L64">        userRepository.save(user);</span>
-<span class="fc" id="L65">        model.addAttribute(&quot;users&quot;, userRepository.findAll());</span>
-<span class="fc" id="L66">        return &quot;redirect:/user/list&quot;;</span>
+        
+    	try {
+<span class="fc" id="L89">    		userService.validatePasswordUser(user);</span>
+<span class="nc" id="L90">    	} catch (UserException e) {</span>
+<span class="nc" id="L91">    		logger.error(e.getMessage());</span>
+<span class="nc" id="L92">    		model.addAttribute(&quot;errorMessage&quot;, e.getMessage());</span>
+<span class="nc" id="L93">    		return &quot;user/update&quot;;</span>
+<span class="fc" id="L94">    	}</span>
+<span class="fc" id="L95">        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();</span>
+<span class="fc" id="L96">        user.setPassword(encoder.encode(user.getPassword()));</span>
+<span class="fc" id="L97">        user.setUserId(id);</span>
+<span class="fc" id="L98">        userRepository.save(user);</span>
+<span class="fc" id="L99">        model.addAttribute(&quot;users&quot;, userRepository.findAll());</span>
+<span class="fc" id="L100">        return &quot;redirect:/user/list&quot;;</span>
     }
     
     
 
     @GetMapping(&quot;/user/delete/{id}&quot;)
     public String deleteUser(@PathVariable(&quot;id&quot;) Integer id, Model model) {
-<span class="pc" id="L73">        User user = userRepository.findById(id).orElseThrow(() -&gt; new IllegalArgumentException(&quot;Invalid user Id:&quot; + id));</span>
-<span class="fc" id="L74">        userRepository.delete(user);</span>
-<span class="fc" id="L75">        model.addAttribute(&quot;users&quot;, userRepository.findAll());</span>
-<span class="fc" id="L76">        return &quot;redirect:/user/list&quot;;</span>
+<span class="pc" id="L107">        User user = userRepository.findById(id).orElseThrow(() -&gt; new IllegalArgumentException(&quot;Invalid user Id:&quot; + id));</span>
+<span class="fc" id="L108">        userRepository.delete(user);</span>
+<span class="fc" id="L109">        model.addAttribute(&quot;users&quot;, userRepository.findAll());</span>
+<span class="fc" id="L110">        return &quot;redirect:/user/list&quot;;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

@@ -3,8 +3,8 @@ package com.nnk.springboot.controllers;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class LoginController {
@@ -17,14 +17,12 @@ public class LoginController {
 
 
 	@GetMapping("/error")
-	public ModelAndView error() {
-		ModelAndView mav = new ModelAndView();
+	public String error(Model model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String remoteUser = authentication.getName();
-        mav.addObject("remoteUser", remoteUser);
+        model.addAttribute("remoteUser", remoteUser);
 		String errorMessage = "You are not authorized for the requested data.";
-		mav.addObject("errorMsg", errorMessage);
-		mav.setViewName("403");
-		return mav;
+		model.addAttribute("errorMsg", errorMessage);
+		return "403";
 	}
 }

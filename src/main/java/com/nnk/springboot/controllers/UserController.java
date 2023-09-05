@@ -1,7 +1,12 @@
 package com.nnk.springboot.controllers;
 
 import com.nnk.springboot.domain.User;
+import com.nnk.springboot.exceptions.UserException;
 import com.nnk.springboot.repositories.UserRepository;
+import com.nnk.springboot.service.UserService;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -18,6 +23,11 @@ import jakarta.validation.Valid;
 public class UserController {
     @Autowired
     private UserRepository userRepository;
+    
+    @Autowired
+    private UserService userService;
+    
+    private static Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @RequestMapping("/user/list")
     public String home(Model model)
@@ -34,6 +44,24 @@ public class UserController {
     @PostMapping("/user/validate")
     public String validate(@Valid User user, BindingResult result, Model model) {
         if (!result.hasErrors()) {
+        	
+        	try {
+        		userService.validateNewUserName(user);
+        	} catch (UserException e) {
+        		logger.error(e.getMessage());
+        		model.addAttribute("errorMessage", e.getMessage());
+        		return "user/add";
+        	}
+        	
+        	
+        	try {
+        		userService.validatePasswordUser(user);
+        	} catch (UserException e) {
+        		logger.error(e.getMessage());
+        		model.addAttribute("errorMessage", e.getMessage());
+        		return "user/add";
+        	}
+        	
             BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
             user.setPassword(encoder.encode(user.getPassword()));
             userRepository.save(user);
@@ -57,7 +85,14 @@ public class UserController {
         if (result.hasErrors()) {
             return "user/update";
         }
-
+        
+    	try {
+    		userService.validatePasswordUser(user);
+    	} catch (UserException e) {
+    		logger.error(e.getMessage());
+    		model.addAttribute("errorMessage", e.getMessage());
+    		return "user/update";
+    	}
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         user.setPassword(encoder.encode(user.getPassword()));
         user.setUserId(id);

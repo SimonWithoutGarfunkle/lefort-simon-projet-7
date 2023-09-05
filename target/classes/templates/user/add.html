@@ -3,14 +3,19 @@
 	  xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8"/>
-<title>Home</title>
+<title>Add User</title>
 <link rel="stylesheet" href="../../css/bootstrap.min.css" >
+<link rel="stylesheet" href="../../css/extra.css" >
 </head>
 <body>
 <div class="container">
 
 	<div class="row">
 		<h2>Add New User</h2>
+	</div>
+	<div>
+		<span th:if="${infoMessage}" class="info-message" th:text="${infoMessage}"></span>
+		<span th:if="${errorMessage}" class="error-message" th:text="${errorMessage}"></span>
 	</div>
 
 	<div class="row">

@@ -98,7 +98,8 @@ public class RatingService {
 	 * @param rating to validate
 	 */
 	public void validateRating(Rating rating) {
-        validateIntegerInRange(rating.getMoodysRating(), "Moody Rating", 0, 10);
+		logger.info("call validateRating");
+		validateIntegerInRange(rating.getMoodysRating(), "Moody Rating", 0, 10);
         validateIntegerInRange(rating.getSandPRating(), "S&P Rating", 0, 10);
         validateIntegerInRange(rating.getFitchRating(), "Fitch Rating", 0, 10);
         validateIntegerInRange(rating.getOrderNumber(), "Order Number", 0, 1000);

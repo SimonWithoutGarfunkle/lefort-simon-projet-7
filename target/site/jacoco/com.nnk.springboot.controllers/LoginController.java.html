@@ -3,8 +3,8 @@
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 <span class="fc" id="L10">public class LoginController {</span>
@@ -17,15 +17,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 	@GetMapping(&quot;/error&quot;)
-	public ModelAndView error() {
-<span class="fc" id="L21">		ModelAndView mav = new ModelAndView();</span>
-<span class="fc" id="L22">		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();</span>
-<span class="fc" id="L23">        String remoteUser = authentication.getName();</span>
-<span class="fc" id="L24">        mav.addObject(&quot;remoteUser&quot;, remoteUser);</span>
-<span class="fc" id="L25">		String errorMessage = &quot;You are not authorized for the requested data.&quot;;</span>
-<span class="fc" id="L26">		mav.addObject(&quot;errorMsg&quot;, errorMessage);</span>
-<span class="fc" id="L27">		mav.setViewName(&quot;403&quot;);</span>
-<span class="fc" id="L28">		return mav;</span>
+	public String error(Model model) {
+<span class="fc" id="L21">		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();</span>
+<span class="fc" id="L22">        String remoteUser = authentication.getName();</span>
+<span class="fc" id="L23">        model.addAttribute(&quot;remoteUser&quot;, remoteUser);</span>
+<span class="fc" id="L24">		String errorMessage = &quot;You are not authorized for the requested data.&quot;;</span>
+<span class="fc" id="L25">		model.addAttribute(&quot;errorMsg&quot;, errorMessage);</span>
+<span class="fc" id="L26">		return &quot;403&quot;;</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

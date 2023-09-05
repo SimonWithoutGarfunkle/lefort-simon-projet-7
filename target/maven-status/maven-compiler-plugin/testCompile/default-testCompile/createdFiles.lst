@@ -15,6 +15,7 @@ com\nnk\springboot\controllerTest\CurvePointControllerTest.class
 com\nnk\springboot\controllerTest\LoginControllerTest.class
 com\nnk\springboot\serviceTest\CurvePointServiceTest.class
 com\nnk\springboot\controllerTest\RuleNameControllerTest.class
+com\nnk\springboot\serviceTest\UserServiceTest.class
 com\nnk\springboot\CurvePointTests.class
 com\nnk\springboot\serviceTest\BidListServiceTest.class
 com\nnk\springboot\TradeTests.class
