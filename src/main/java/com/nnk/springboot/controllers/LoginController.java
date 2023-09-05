@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class LoginController {
 	
-	@GetMapping("/login")
+	@GetMapping("login")
     public String login() {
         return "login";
     }
 
 
-
-	@GetMapping("/error")
+	
+	@GetMapping("/403")
 	public String error(Model model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String remoteUser = authentication.getName();
@@ -25,4 +25,6 @@ public class LoginController {
 		model.addAttribute("errorMsg", errorMessage);
 		return "403";
 	}
+		
+	
 }

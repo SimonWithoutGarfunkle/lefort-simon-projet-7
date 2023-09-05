@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 <span class="fc" id="L10">public class LoginController {</span>
 	
-	@GetMapping(&quot;/login&quot;)
+	@GetMapping(&quot;login&quot;)
     public String login() {
 <span class="fc" id="L14">        return &quot;login&quot;;</span>
     }
 
 
-
-	@GetMapping(&quot;/error&quot;)
+	
+	@GetMapping(&quot;/403&quot;)
 	public String error(Model model) {
 <span class="fc" id="L21">		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();</span>
 <span class="fc" id="L22">        String remoteUser = authentication.getName();</span>
@@ -25,5 +25,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 <span class="fc" id="L25">		model.addAttribute(&quot;errorMsg&quot;, errorMessage);</span>
 <span class="fc" id="L26">		return &quot;403&quot;;</span>
 	}
+		
+	
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

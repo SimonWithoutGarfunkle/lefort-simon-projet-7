@@ -84,6 +84,11 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+    <groupId>org.eclipse.sisu</groupId>
+    <artifactId>org.eclipse.sisu.inject</artifactId>
+    <version>0.3.5</version>
+</dependency>
 
 	</dependencies>
 
@@ -125,7 +130,7 @@
             <configuration>
                 <!-- Configurations spécifiques du plugin -->
                 <source>17</source>
-                <excludePackageNames>com.nnk.springboot.configuration, com.nnk.springboot.domain, com.nnk.springboot.exceptions, com.nnk.springboot.repositories, com.nnk.springboot.controllers</excludePackageNames>
+                <excludePackageNames>com.nnk.springboot.domain, com.nnk.springboot.exceptions, com.nnk.springboot.repositories, com.nnk.springboot.controllers</excludePackageNames>
             </configuration>
         </plugin>
 		</plugins>

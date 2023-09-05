@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.nnk.springboot"},{"l":"com.nnk.springboot.service"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.nnk.springboot"},{"l":"com.nnk.springboot.configuration"},{"l":"com.nnk.springboot.service"}];updateSearchResults();

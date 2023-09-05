@@ -71,10 +71,10 @@ import jakarta.validation.Valid;
                              BindingResult result, Model model) {
     	try {
 <span class="fc" id="L73">    		ratingService.validateRating(rating);</span>
-<span class="fc" id="L74">    	} catch (RatingException e) {</span>
-<span class="fc" id="L75">    		logger.error(e.getMessage());</span>
-<span class="fc" id="L76">    		model.addAttribute(&quot;errorMessage&quot;, e.getMessage());</span>
-<span class="fc" id="L77">    		return &quot;rating/update&quot;;</span>
+<span class="nc" id="L74">    	} catch (RatingException e) {</span>
+<span class="nc" id="L75">    		logger.error(e.getMessage());</span>
+<span class="nc" id="L76">    		model.addAttribute(&quot;errorMessage&quot;, e.getMessage());</span>
+<span class="nc" id="L77">    		return &quot;rating/update&quot;;</span>
 <span class="fc" id="L78">    	}</span>
 <span class="fc" id="L79">    	ratingService.updateRating(rating);</span>
 <span class="fc" id="L80">        return &quot;redirect:/rating/list&quot;;</span>

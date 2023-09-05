@@ -26,7 +26,7 @@ public class LoginControllerTest {
 	
     @Test
     public void errorTest() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/error"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/403"))
         		.andExpect(MockMvcResultMatchers.view().name("403"))
                 .andExpect(model().attributeExists("errorMsg"));
     }

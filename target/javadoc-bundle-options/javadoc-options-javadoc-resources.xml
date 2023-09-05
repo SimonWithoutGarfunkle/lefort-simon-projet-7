@@ -7,8 +7,7 @@
     <tagletArtifact />
   </tagletArtifacts>
   <excludePackageNames>
-    <excludePackageName>com.nnk.springboot.configuration</excludePackageName>
-    <excludePackageName> com.nnk.springboot.domain</excludePackageName>
+    <excludePackageName>com.nnk.springboot.domain</excludePackageName>
     <excludePackageName> com.nnk.springboot.exceptions</excludePackageName>
     <excludePackageName> com.nnk.springboot.repositories</excludePackageName>
     <excludePackageName> com.nnk.springboot.controllers</excludePackageName>

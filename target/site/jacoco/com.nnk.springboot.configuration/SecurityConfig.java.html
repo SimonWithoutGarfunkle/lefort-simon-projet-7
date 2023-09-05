@@ -48,9 +48,11 @@ import com.nnk.springboot.service.MyUserDetailsService;
 <span class="fc" id="L48">								.logoutSuccessUrl(&quot;/login&quot;)</span>
 <span class="fc" id="L49">								.invalidateHttpSession(true)</span>
 <span class="fc" id="L50">								.clearAuthentication(true)</span>
-<span class="fc" id="L51">								.permitAll());              </span>
+<span class="fc" id="L51">								.permitAll())</span>
+<span class="fc" id="L52">		        .exceptionHandling(exceptionHandling -&gt; exceptionHandling</span>
+<span class="fc" id="L53">		                .accessDeniedPage(&quot;/403&quot;));</span>
 							                
-<span class="fc" id="L53">		return http.build();      </span>
+<span class="fc" id="L55">		return http.build();      </span>
 							                
 							                
 	}
@@ -63,10 +65,10 @@ import com.nnk.springboot.service.MyUserDetailsService;
 	 */
 	@Bean
     public DaoAuthenticationProvider authenticationProvider() {
-<span class="fc" id="L66">        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();</span>
-<span class="fc" id="L67">        authProvider.setUserDetailsService(userDetailsService());</span>
-<span class="fc" id="L68">        authProvider.setPasswordEncoder(passwordEncoder());</span>
-<span class="fc" id="L69">        return authProvider;</span>
+<span class="fc" id="L68">        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();</span>
+<span class="fc" id="L69">        authProvider.setUserDetailsService(userDetailsService());</span>
+<span class="fc" id="L70">        authProvider.setPasswordEncoder(passwordEncoder());</span>
+<span class="fc" id="L71">        return authProvider;</span>
     }
 	
 	/**
@@ -76,7 +78,7 @@ import com.nnk.springboot.service.MyUserDetailsService;
 	 */
 	@Bean
     public MyUserDetailsService userDetailsService() {
-<span class="fc" id="L79">        return new MyUserDetailsService();</span>
+<span class="fc" id="L81">        return new MyUserDetailsService();</span>
     }
 	
 	/**
@@ -86,7 +88,7 @@ import com.nnk.springboot.service.MyUserDetailsService;
 	 */
 	@Bean
     public BCryptPasswordEncoder passwordEncoder() {
-<span class="fc" id="L89">        return new BCryptPasswordEncoder();</span>
+<span class="fc" id="L91">        return new BCryptPasswordEncoder();</span>
     } 
 
 }

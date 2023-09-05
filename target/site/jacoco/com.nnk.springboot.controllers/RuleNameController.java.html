@@ -49,10 +49,10 @@ import jakarta.validation.Valid;
     public String validate(@Valid RuleName ruleName, BindingResult result, Model model) {
         try {
 <span class="fc" id="L51">        	ruleNameService.validateRuleName(ruleName);</span>
-<span class="fc" id="L52">        } catch (RuleNameException e) {</span>
-<span class="fc" id="L53">        	logger.error(e.getMessage());</span>
-<span class="fc" id="L54">    		model.addAttribute(&quot;errorMessage&quot;, e.getMessage());</span>
-<span class="fc" id="L55">    		return &quot;ruleName/add&quot;;</span>
+<span class="nc" id="L52">        } catch (RuleNameException e) {</span>
+<span class="nc" id="L53">        	logger.error(e.getMessage());</span>
+<span class="nc" id="L54">    		model.addAttribute(&quot;errorMessage&quot;, e.getMessage());</span>
+<span class="nc" id="L55">    		return &quot;ruleName/add&quot;;</span>
         	
 <span class="fc" id="L57">        }</span>
         
@@ -72,10 +72,10 @@ import jakarta.validation.Valid;
                              BindingResult result, Model model) {
     	try {
 <span class="fc" id="L74">        	ruleNameService.validateRuleName(ruleName);</span>
-<span class="fc" id="L75">        } catch (RuleNameException e) {</span>
-<span class="fc" id="L76">        	logger.error(e.getMessage());</span>
-<span class="fc" id="L77">    		model.addAttribute(&quot;errorMessage&quot;, e.getMessage());</span>
-<span class="fc" id="L78">    		return &quot;ruleName/update&quot;;</span>
+<span class="nc" id="L75">        } catch (RuleNameException e) {</span>
+<span class="nc" id="L76">        	logger.error(e.getMessage());</span>
+<span class="nc" id="L77">    		model.addAttribute(&quot;errorMessage&quot;, e.getMessage());</span>
+<span class="nc" id="L78">    		return &quot;ruleName/update&quot;;</span>
         	
 <span class="fc" id="L80">        }</span>
 <span class="fc" id="L81">        ruleNameService.updateRuleName(ruleName);</span>
