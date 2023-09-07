@@ -1,0 +1,271 @@
+2023-09-07T12:23:49.477+02:00  INFO 8940 --- [restartedMain] com.nnk.springboot.Application           : Starting Application using Java 17.0.6 with PID 8940 (C:\Users\simon\eclipse-workspace\Poseiden-skeleton\target\classes started by Simon in C:\Users\simon\eclipse-workspace\Poseiden-skeleton)
+2023-09-07T12:23:49.483+02:00  INFO 8940 --- [restartedMain] com.nnk.springboot.Application           : No active profile set, falling back to 1 default profile: "default"
+2023-09-07T12:23:49.524+02:00  INFO 8940 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-09-07T12:23:49.526+02:00  INFO 8940 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-09-07T12:23:50.119+02:00  INFO 8940 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-09-07T12:23:50.177+02:00  INFO 8940 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50 ms. Found 6 JPA repository interfaces.
+2023-09-07T12:23:50.736+02:00  INFO 8940 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-09-07T12:23:50.744+02:00  INFO 8940 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-09-07T12:23:50.744+02:00  INFO 8940 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-09-07T12:23:50.812+02:00  INFO 8940 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-09-07T12:23:50.813+02:00  INFO 8940 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1286 ms
+2023-09-07T12:23:50.844+02:00  INFO 8940 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-09-07T12:23:51.089+02:00  INFO 8940 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@79f40654
+2023-09-07T12:23:51.091+02:00  INFO 8940 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-09-07T12:23:51.099+02:00  INFO 8940 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/demo'
+2023-09-07T12:23:51.256+02:00  INFO 8940 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-09-07T12:23:51.319+02:00  INFO 8940 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.2.Final
+2023-09-07T12:23:51.322+02:00  INFO 8940 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-09-07T12:23:51.458+02:00  INFO 8940 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-09-07T12:23:51.576+02:00  INFO 8940 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-09-07T12:23:51.643+02:00  INFO 8940 --- [restartedMain] org.hibernate.orm.dialect                : HHH035001: Using dialect: org.hibernate.dialect.MySQLDialect, version: 8.0.33
+2023-09-07T12:23:51.829+02:00  INFO 8940 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-09-07T12:23:52.449+02:00  INFO 8940 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-09-07T12:23:52.658+02:00  INFO 8940 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-09-07T12:23:52.993+02:00  WARN 8940 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-07T12:23:53.229+02:00  INFO 8940 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@278f2d01, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6bb10f2b, org.springframework.security.web.context.SecurityContextHolderFilter@6e6db03a, org.springframework.security.web.header.HeaderWriterFilter@4074add7, org.springframework.security.web.csrf.CsrfFilter@c357e99, org.springframework.security.web.authentication.logout.LogoutFilter@7f72f58c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5b854e47, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@15b60105, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@52466b28, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1a37836c, org.springframework.security.web.access.ExceptionTranslationFilter@22708bc8, org.springframework.security.web.access.intercept.AuthorizationFilter@7d162c8f]
+2023-09-07T12:23:53.405+02:00  INFO 8940 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-09-07T12:23:53.430+02:00  INFO 8940 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-07T12:23:53.437+02:00  INFO 8940 --- [restartedMain] com.nnk.springboot.Application           : Started Application in 4.325 seconds (process running for 4.784)
+2023-09-07T12:35:35.239+02:00  INFO 8940 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-07T12:35:35.240+02:00  INFO 8940 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-09-07T12:35:35.242+02:00  INFO 8940 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-09-07T12:35:48.100+02:00  INFO 8940 --- [http-nio-8080-exec-7] c.nnk.springboot.service.BidListService  : call getAllRule
+2023-09-07T12:35:59.619+02:00  INFO 8940 --- [http-nio-8080-exec-9] c.nnk.springboot.service.BidListService  : call getAllRule
+2023-09-07T12:36:00.352+02:00  INFO 8940 --- [http-nio-8080-exec-1] c.n.s.service.CurvePointService          : call getAllRule
+2023-09-07T12:36:00.958+02:00  INFO 8940 --- [http-nio-8080-exec-3] c.nnk.springboot.service.RatingService   : call getAllRatings
+2023-09-07T12:36:01.347+02:00  INFO 8940 --- [http-nio-8080-exec-6] c.nnk.springboot.service.TradeService    : call getAllRule
+2023-09-07T12:36:02.133+02:00  INFO 8940 --- [http-nio-8080-exec-7] c.n.springboot.service.RuleNameService   : call getAllRule
+2023-09-07T12:36:04.554+02:00  INFO 8940 --- [http-nio-8080-exec-2] c.n.springboot.service.RuleNameService   : call getAllRule
+2023-09-07T12:36:08.333+02:00  INFO 8940 --- [http-nio-8080-exec-4] c.nnk.springboot.service.RatingService   : call getAllRatings
+2023-09-07T12:36:52.231+02:00  INFO 8940 --- [http-nio-8080-exec-9] c.nnk.springboot.service.RatingService   : call getAllRatings
+2023-09-07T12:37:09.558+02:00  INFO 8940 --- [http-nio-8080-exec-5] com.nnk.springboot.service.UserService   : call validatePasswordUser
+2023-09-07T12:37:09.560+02:00 ERROR 8940 --- [http-nio-8080-exec-5] c.n.s.controllers.UserController         : Password must contain at least 8 characters
+2023-09-07T12:37:22.582+02:00  INFO 8940 --- [http-nio-8080-exec-10] c.nnk.springboot.service.RatingService   : call getAllRatings
+2023-09-07T12:37:46.972+02:00  INFO 8940 --- [http-nio-8080-exec-2] c.nnk.springboot.service.BidListService  : call getAllRule
+2023-09-07T12:57:53.166+02:00  INFO 8940 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-09-07T12:57:53.168+02:00  INFO 8940 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-09-07T12:57:53.173+02:00  INFO 8940 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-09-07T19:56:40.567+02:00  INFO 16140 --- [main] com.nnk.springboot.BidTests              : Starting BidTests using Java 17.0.6 with PID 16140 (started by Simon in C:\Users\simon\eclipse-workspace\Poseiden-skeleton)
+2023-09-07T19:56:40.568+02:00  INFO 16140 --- [main] com.nnk.springboot.BidTests              : No active profile set, falling back to 1 default profile: "default"
+2023-09-07T19:56:41.560+02:00  INFO 16140 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-09-07T19:56:41.640+02:00  INFO 16140 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69 ms. Found 6 JPA repository interfaces.
+2023-09-07T19:56:42.259+02:00  INFO 16140 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-09-07T19:56:42.346+02:00  INFO 16140 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.2.Final
+2023-09-07T19:56:42.349+02:00  INFO 16140 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-09-07T19:56:42.600+02:00  INFO 16140 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-09-07T19:56:42.775+02:00  INFO 16140 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-09-07T19:56:42.802+02:00  INFO 16140 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-09-07T19:56:43.166+02:00  INFO 16140 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@296ac298
+2023-09-07T19:56:43.169+02:00  INFO 16140 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-09-07T19:56:43.235+02:00  INFO 16140 --- [main] org.hibernate.orm.dialect                : HHH035001: Using dialect: org.hibernate.dialect.MySQLDialect, version: 8.0.33
+2023-09-07T19:56:43.644+02:00  INFO 16140 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-09-07T19:56:44.723+02:00  INFO 16140 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-09-07T19:56:44.972+02:00  INFO 16140 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-09-07T19:56:45.672+02:00  WARN 16140 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-07T19:56:46.075+02:00  INFO 16140 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@260a839d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@10cf7130, org.springframework.security.web.context.SecurityContextHolderFilter@4a945e6e, org.springframework.security.web.header.HeaderWriterFilter@6aaec13, org.springframework.security.web.csrf.CsrfFilter@2c21d4c9, org.springframework.security.web.authentication.logout.LogoutFilter@55d7429e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5195b6bc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@76dafd0e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1e2c25d4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6c1315c3, org.springframework.security.web.access.ExceptionTranslationFilter@414776fb, org.springframework.security.web.access.intercept.AuthorizationFilter@501ccde9]
+2023-09-07T19:56:46.401+02:00  INFO 16140 --- [main] com.nnk.springboot.BidTests              : Started BidTests in 6.247 seconds (process running for 8.332)
+2023-09-07T19:56:47.074+02:00  INFO 16140 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.nnk.springboot.configurationTest.SecurityConfigTest]: SecurityConfigTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-09-07T19:56:47.094+02:00  INFO 16140 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.nnk.springboot.Application for test class com.nnk.springboot.configurationTest.SecurityConfigTest
+2023-09-07T19:56:47.117+02:00  INFO 16140 --- [main] c.n.s.c.SecurityConfigTest               : Starting SecurityConfigTest using Java 17.0.6 with PID 16140 (started by Simon in C:\Users\simon\eclipse-workspace\Poseiden-skeleton)
+2023-09-07T19:56:47.118+02:00  INFO 16140 --- [main] c.n.s.c.SecurityConfigTest               : No active profile set, falling back to 1 default profile: "default"
+2023-09-07T19:56:47.258+02:00  INFO 16140 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-09-07T19:56:47.270+02:00  INFO 16140 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 6 JPA repository interfaces.
+2023-09-07T19:56:47.350+02:00  INFO 16140 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-09-07T19:56:47.356+02:00  INFO 16140 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-09-07T19:56:47.357+02:00  INFO 16140 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-09-07T19:56:47.357+02:00  INFO 16140 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2023-09-07T19:56:47.368+02:00  INFO 16140 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@40d1799c
+2023-09-07T19:56:47.369+02:00  INFO 16140 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2023-09-07T19:56:47.371+02:00  INFO 16140 --- [main] org.hibernate.orm.dialect                : HHH035001: Using dialect: org.hibernate.dialect.MySQLDialect, version: 8.0.33
+2023-09-07T19:56:47.395+02:00  INFO 16140 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-09-07T19:56:47.498+02:00  INFO 16140 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-09-07T19:56:47.619+02:00  INFO 16140 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-09-07T19:56:47.694+02:00  WARN 16140 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-07T19:56:47.757+02:00  INFO 16140 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1be36b12, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6f942437, org.springframework.security.web.context.SecurityContextHolderFilter@25e965ee, org.springframework.security.web.header.HeaderWriterFilter@2bc694dd, org.springframework.security.web.csrf.CsrfFilter@16b8e471, org.springframework.security.web.authentication.logout.LogoutFilter@4782905e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@48b0123a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@74a3964e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@36d54cfb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@76bc642f, org.springframework.security.web.access.ExceptionTranslationFilter@51f278d1, org.springframework.security.web.access.intercept.AuthorizationFilter@33d55c86]
+2023-09-07T19:56:47.887+02:00  INFO 16140 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-09-07T19:56:47.887+02:00  INFO 16140 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-09-07T19:56:47.888+02:00  INFO 16140 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2023-09-07T19:56:47.895+02:00  INFO 16140 --- [main] c.n.s.c.SecurityConfigTest               : Started SecurityConfigTest in 0.796 seconds (process running for 9.826)
+2023-09-07T19:56:48.243+02:00  INFO 16140 --- [main] c.nnk.springboot.service.BidListService  : call getAllRule
+2023-09-07T19:56:48.314+02:00  INFO 16140 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.nnk.springboot.controllerTest.BidListControllerTest]: BidListControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-09-07T19:56:48.322+02:00  INFO 16140 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.nnk.springboot.Application for test class com.nnk.springboot.controllerTest.BidListControllerTest
+2023-09-07T19:56:48.343+02:00  INFO 16140 --- [main] c.nnk.springboot.service.BidListService  : call addBidList
+2023-09-07T19:56:48.373+02:00  INFO 16140 --- [main] c.nnk.springboot.service.BidListService  : call updateBidList
+2023-09-07T19:56:48.382+02:00  INFO 16140 --- [main] c.nnk.springboot.service.BidListService  : call getBidListById
+2023-09-07T19:56:48.383+02:00  INFO 16140 --- [main] c.nnk.springboot.service.BidListService  : call convertOptionalToBidList
+2023-09-07T19:56:48.391+02:00  INFO 16140 --- [main] c.nnk.springboot.service.BidListService  : call addBidList
+2023-09-07T19:56:48.395+02:00  INFO 16140 --- [main] c.nnk.springboot.service.BidListService  : call getBidListById
+2023-09-07T19:56:48.396+02:00  INFO 16140 --- [main] c.nnk.springboot.service.BidListService  : call convertOptionalToBidList
+2023-09-07T19:56:48.442+02:00  INFO 16140 --- [main] c.nnk.springboot.service.BidListService  : call addBidList
+2023-09-07T19:56:48.445+02:00  INFO 16140 --- [main] c.nnk.springboot.service.BidListService  : call getAllRule
+2023-09-07T19:56:48.456+02:00  INFO 16140 --- [main] c.nnk.springboot.service.BidListService  : call addBidList
+2023-09-07T19:56:48.460+02:00  INFO 16140 --- [main] c.nnk.springboot.service.BidListService  : call deleteBidList
+2023-09-07T19:56:48.462+02:00  INFO 16140 --- [main] c.nnk.springboot.service.BidListService  : call getBidListById
+2023-09-07T19:56:48.462+02:00  INFO 16140 --- [main] c.nnk.springboot.service.BidListService  : call convertOptionalToBidList
+2023-09-07T19:56:48.468+02:00  INFO 16140 --- [main] c.nnk.springboot.service.BidListService  : call addBidList
+2023-09-07T19:56:48.470+02:00  INFO 16140 --- [main] c.nnk.springboot.service.BidListService  : call getAllRule
+2023-09-07T19:56:48.476+02:00  INFO 16140 --- [main] c.nnk.springboot.service.BidListService  : call addBidList
+2023-09-07T19:56:48.480+02:00  INFO 16140 --- [main] c.nnk.springboot.service.BidListService  : call getAllRule
+2023-09-07T19:56:48.488+02:00  INFO 16140 --- [main] c.nnk.springboot.service.BidListService  : call addBidList
+2023-09-07T19:56:48.502+02:00  INFO 16140 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.nnk.springboot.controllerTest.CurvePointControllerTest]: CurvePointControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-09-07T19:56:48.505+02:00  INFO 16140 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.nnk.springboot.Application for test class com.nnk.springboot.controllerTest.CurvePointControllerTest
+2023-09-07T19:56:48.513+02:00  INFO 16140 --- [main] c.n.s.service.CurvePointService          : call addCurvePoint
+2023-09-07T19:56:48.518+02:00  INFO 16140 --- [main] c.n.s.service.CurvePointService          : call getCurvePointById
+2023-09-07T19:56:48.519+02:00  INFO 16140 --- [main] c.n.s.service.CurvePointService          : call convertOptionalToCurvePoint
+2023-09-07T19:56:48.529+02:00  INFO 16140 --- [main] c.n.s.service.CurvePointService          : call addCurvePoint
+2023-09-07T19:56:48.532+02:00  INFO 16140 --- [main] c.n.s.service.CurvePointService          : call getAllRule
+2023-09-07T19:56:48.536+02:00  INFO 16140 --- [main] c.n.s.service.CurvePointService          : call addCurvePoint
+2023-09-07T19:56:48.540+02:00  INFO 16140 --- [main] c.n.s.service.CurvePointService          : call getAllRule
+2023-09-07T19:56:48.546+02:00  INFO 16140 --- [main] c.n.s.service.CurvePointService          : call addCurvePoint
+2023-09-07T19:56:48.550+02:00  INFO 16140 --- [main] c.n.s.service.CurvePointService          : call getAllRule
+2023-09-07T19:56:48.564+02:00  INFO 16140 --- [main] c.n.s.service.CurvePointService          : call addCurvePoint
+2023-09-07T19:56:48.568+02:00  INFO 16140 --- [main] c.n.s.service.CurvePointService          : call updateCurvePoint
+2023-09-07T19:56:48.571+02:00  INFO 16140 --- [main] c.n.s.service.CurvePointService          : call getCurvePointById
+2023-09-07T19:56:48.571+02:00  INFO 16140 --- [main] c.n.s.service.CurvePointService          : call convertOptionalToCurvePoint
+2023-09-07T19:56:48.577+02:00  INFO 16140 --- [main] c.n.s.service.CurvePointService          : call addCurvePoint
+2023-09-07T19:56:48.592+02:00  INFO 16140 --- [main] c.n.s.service.CurvePointService          : call addCurvePoint
+2023-09-07T19:56:48.595+02:00  INFO 16140 --- [main] c.n.s.service.CurvePointService          : call deleteCurvePoint
+2023-09-07T19:56:48.596+02:00  INFO 16140 --- [main] c.n.s.service.CurvePointService          : call getCurvePointById
+2023-09-07T19:56:48.597+02:00  INFO 16140 --- [main] c.n.s.service.CurvePointService          : call convertOptionalToCurvePoint
+2023-09-07T19:56:48.600+02:00  INFO 16140 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.nnk.springboot.controllerTest.HomeControllerTest]: HomeControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-09-07T19:56:48.602+02:00  INFO 16140 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.nnk.springboot.Application for test class com.nnk.springboot.controllerTest.HomeControllerTest
+2023-09-07T19:56:48.619+02:00  INFO 16140 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.nnk.springboot.controllerTest.LoginControllerTest]: LoginControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-09-07T19:56:48.622+02:00  INFO 16140 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.nnk.springboot.Application for test class com.nnk.springboot.controllerTest.LoginControllerTest
+2023-09-07T19:56:48.640+02:00  INFO 16140 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.nnk.springboot.controllerTest.RatingControllerTest]: RatingControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-09-07T19:56:48.642+02:00  INFO 16140 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.nnk.springboot.Application for test class com.nnk.springboot.controllerTest.RatingControllerTest
+2023-09-07T19:56:48.646+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call addRating
+2023-09-07T19:56:48.653+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call getRatingById
+2023-09-07T19:56:48.654+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call convertOptionalToRating
+2023-09-07T19:56:48.665+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call addRating
+2023-09-07T19:56:48.678+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call addRating
+2023-09-07T19:56:48.681+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call getAllRatings
+2023-09-07T19:56:48.692+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call addRating
+2023-09-07T19:56:48.694+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call getAllRatings
+2023-09-07T19:56:48.699+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call validateRating
+2023-09-07T19:56:48.699+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call addRating
+2023-09-07T19:56:48.702+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call getAllRatings
+2023-09-07T19:56:48.708+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call addRating
+2023-09-07T19:56:48.711+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call deleteRating
+2023-09-07T19:56:48.712+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call getRatingById
+2023-09-07T19:56:48.712+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call convertOptionalToRating
+2023-09-07T19:56:48.716+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call addRating
+2023-09-07T19:56:48.720+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call validateRating
+2023-09-07T19:56:48.720+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call updateRating
+2023-09-07T19:56:48.722+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call getRatingById
+2023-09-07T19:56:48.722+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call convertOptionalToRating
+2023-09-07T19:56:48.727+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call addRating
+2023-09-07T19:56:48.729+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call getAllRatings
+2023-09-07T19:56:48.737+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call validateRating
+2023-09-07T19:56:48.739+02:00 ERROR 16140 --- [main] c.n.s.controllers.RatingController       : Moody Rating must be an integer between 0 and 10.
+2023-09-07T19:56:48.750+02:00  INFO 16140 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.nnk.springboot.controllerTest.RuleNameControllerTest]: RuleNameControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-09-07T19:56:48.752+02:00  INFO 16140 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.nnk.springboot.Application for test class com.nnk.springboot.controllerTest.RuleNameControllerTest
+2023-09-07T19:56:48.757+02:00  INFO 16140 --- [main] c.n.springboot.service.RuleNameService   : call addRuleName
+2023-09-07T19:56:48.765+02:00  INFO 16140 --- [main] c.n.springboot.service.RuleNameService   : call getRuleNameById
+2023-09-07T19:56:48.766+02:00  INFO 16140 --- [main] c.n.springboot.service.RuleNameService   : call convertOptionalToRule
+2023-09-07T19:56:48.778+02:00  INFO 16140 --- [main] c.n.springboot.service.RuleNameService   : call addRuleName
+2023-09-07T19:56:48.781+02:00  INFO 16140 --- [main] c.n.springboot.service.RuleNameService   : call getAllRule
+2023-09-07T19:56:48.786+02:00  INFO 16140 --- [main] c.n.springboot.service.RuleNameService   : call addRuleName
+2023-09-07T19:56:48.789+02:00  INFO 16140 --- [main] c.n.springboot.service.RuleNameService   : call getAllRule
+2023-09-07T19:56:48.796+02:00  INFO 16140 --- [main] c.n.springboot.service.RuleNameService   : call addRuleName
+2023-09-07T19:56:48.799+02:00  INFO 16140 --- [main] c.n.springboot.service.RuleNameService   : call getAllRule
+2023-09-07T19:56:48.811+02:00  INFO 16140 --- [main] c.n.springboot.service.RuleNameService   : call addRuleName
+2023-09-07T19:56:48.814+02:00  INFO 16140 --- [main] c.n.springboot.service.RuleNameService   : call deleteRuleName
+2023-09-07T19:56:48.816+02:00  INFO 16140 --- [main] c.n.springboot.service.RuleNameService   : call getRuleNameById
+2023-09-07T19:56:48.817+02:00  INFO 16140 --- [main] c.n.springboot.service.RuleNameService   : call convertOptionalToRule
+2023-09-07T19:56:48.820+02:00  INFO 16140 --- [main] c.n.springboot.service.RuleNameService   : call addRuleName
+2023-09-07T19:56:48.825+02:00  INFO 16140 --- [main] c.n.springboot.service.RuleNameService   : call updateRuleName
+2023-09-07T19:56:48.827+02:00  INFO 16140 --- [main] c.n.springboot.service.RuleNameService   : call getRuleNameById
+2023-09-07T19:56:48.827+02:00  INFO 16140 --- [main] c.n.springboot.service.RuleNameService   : call convertOptionalToRule
+2023-09-07T19:56:48.831+02:00  INFO 16140 --- [main] c.n.springboot.service.RuleNameService   : call addRuleName
+2023-09-07T19:56:48.845+02:00  INFO 16140 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.nnk.springboot.controllerTest.TradeControllerTest]: TradeControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-09-07T19:56:48.848+02:00  INFO 16140 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.nnk.springboot.Application for test class com.nnk.springboot.controllerTest.TradeControllerTest
+2023-09-07T19:56:48.851+02:00  INFO 16140 --- [main] c.nnk.springboot.service.TradeService    : call addTrade
+2023-09-07T19:56:48.856+02:00  INFO 16140 --- [main] c.nnk.springboot.service.TradeService    : call getTradeById
+2023-09-07T19:56:48.857+02:00  INFO 16140 --- [main] c.nnk.springboot.service.TradeService    : call convertOptionalToTrade
+2023-09-07T19:56:48.866+02:00  INFO 16140 --- [main] c.nnk.springboot.service.TradeService    : call addTrade
+2023-09-07T19:56:48.869+02:00  INFO 16140 --- [main] c.nnk.springboot.service.TradeService    : call getAllRule
+2023-09-07T19:56:48.875+02:00  INFO 16140 --- [main] c.nnk.springboot.service.TradeService    : call addTrade
+2023-09-07T19:56:48.878+02:00  INFO 16140 --- [main] c.nnk.springboot.service.TradeService    : call getAllRule
+2023-09-07T19:56:48.884+02:00  INFO 16140 --- [main] c.nnk.springboot.service.TradeService    : call addTrade
+2023-09-07T19:56:48.887+02:00  INFO 16140 --- [main] c.nnk.springboot.service.TradeService    : call getAllRule
+2023-09-07T19:56:48.899+02:00  INFO 16140 --- [main] c.nnk.springboot.service.TradeService    : call addTrade
+2023-09-07T19:56:48.910+02:00  INFO 16140 --- [main] c.nnk.springboot.service.TradeService    : call addTrade
+2023-09-07T19:56:48.913+02:00  INFO 16140 --- [main] c.nnk.springboot.service.TradeService    : call deleteTrade
+2023-09-07T19:56:48.914+02:00  INFO 16140 --- [main] c.nnk.springboot.service.TradeService    : call getTradeById
+2023-09-07T19:56:48.914+02:00  INFO 16140 --- [main] c.nnk.springboot.service.TradeService    : call convertOptionalToTrade
+2023-09-07T19:56:48.918+02:00  INFO 16140 --- [main] c.nnk.springboot.service.TradeService    : call addTrade
+2023-09-07T19:56:48.922+02:00  INFO 16140 --- [main] c.nnk.springboot.service.TradeService    : call updateTrade
+2023-09-07T19:56:48.923+02:00  INFO 16140 --- [main] c.nnk.springboot.service.TradeService    : call getTradeById
+2023-09-07T19:56:48.923+02:00  INFO 16140 --- [main] c.nnk.springboot.service.TradeService    : call convertOptionalToTrade
+2023-09-07T19:56:48.927+02:00  INFO 16140 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.nnk.springboot.controllerTest.UserControllerTest]: UserControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-09-07T19:56:48.928+02:00  INFO 16140 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.nnk.springboot.Application for test class com.nnk.springboot.controllerTest.UserControllerTest
+2023-09-07T19:56:48.971+02:00  INFO 16140 --- [main] com.nnk.springboot.service.UserService   : call validateNewUserName
+2023-09-07T19:56:48.973+02:00  INFO 16140 --- [main] com.nnk.springboot.service.UserService   : call validatePasswordUser
+2023-09-07T19:56:49.086+02:00  INFO 16140 --- [main] com.nnk.springboot.service.UserService   : call validatePasswordUser
+2023-09-07T19:56:49.166+02:00  INFO 16140 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.nnk.springboot.CurvePointTests]: CurvePointTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-09-07T19:56:49.167+02:00  INFO 16140 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.nnk.springboot.Application for test class com.nnk.springboot.CurvePointTests
+2023-09-07T19:56:49.188+02:00  INFO 16140 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.nnk.springboot.PasswordEncodeTest]: PasswordEncodeTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-09-07T19:56:49.189+02:00  INFO 16140 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.nnk.springboot.Application for test class com.nnk.springboot.PasswordEncodeTest
+2023-09-07T19:56:49.247+02:00  INFO 16140 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.nnk.springboot.RatingTests]: RatingTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-09-07T19:56:49.248+02:00  INFO 16140 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.nnk.springboot.Application for test class com.nnk.springboot.RatingTests
+2023-09-07T19:56:49.271+02:00  INFO 16140 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.nnk.springboot.RuleNameTests]: RuleNameTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-09-07T19:56:49.272+02:00  INFO 16140 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.nnk.springboot.Application for test class com.nnk.springboot.RuleNameTests
+2023-09-07T19:56:49.792+02:00  INFO 16140 --- [main] c.nnk.springboot.service.BidListService  : call convertOptionalToBidList
+2023-09-07T19:56:49.802+02:00  INFO 16140 --- [main] c.nnk.springboot.service.BidListService  : call getAllRule
+2023-09-07T19:56:49.824+02:00  INFO 16140 --- [main] c.nnk.springboot.service.BidListService  : call getBidListById
+2023-09-07T19:56:49.827+02:00  INFO 16140 --- [main] c.nnk.springboot.service.BidListService  : call convertOptionalToBidList
+2023-09-07T19:56:49.857+02:00  INFO 16140 --- [main] c.nnk.springboot.service.BidListService  : call updateBidList
+2023-09-07T19:56:49.862+02:00  INFO 16140 --- [main] c.nnk.springboot.service.BidListService  : call convertOptionalToBidList
+2023-09-07T19:56:49.867+02:00  INFO 16140 --- [main] c.nnk.springboot.service.BidListService  : call addBidList
+2023-09-07T19:56:49.871+02:00  INFO 16140 --- [main] c.nnk.springboot.service.BidListService  : call deleteBidList
+2023-09-07T19:56:49.980+02:00  INFO 16140 --- [main] c.n.s.service.CurvePointService          : call convertOptionalToCurvePoint
+2023-09-07T19:56:49.984+02:00  INFO 16140 --- [main] c.n.s.service.CurvePointService          : call convertOptionalToCurvePoint
+2023-09-07T19:56:49.991+02:00  INFO 16140 --- [main] c.n.s.service.CurvePointService          : call getAllRule
+2023-09-07T19:56:49.996+02:00  INFO 16140 --- [main] c.n.s.service.CurvePointService          : call deleteCurvePoint
+2023-09-07T19:56:50.001+02:00  INFO 16140 --- [main] c.n.s.service.CurvePointService          : call addCurvePoint
+2023-09-07T19:56:50.006+02:00  INFO 16140 --- [main] c.n.s.service.CurvePointService          : call getCurvePointById
+2023-09-07T19:56:50.007+02:00  INFO 16140 --- [main] c.n.s.service.CurvePointService          : call convertOptionalToCurvePoint
+2023-09-07T19:56:50.011+02:00  INFO 16140 --- [main] c.n.s.service.CurvePointService          : call updateCurvePoint
+2023-09-07T19:56:50.215+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call getRatingById
+2023-09-07T19:56:50.216+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call convertOptionalToRating
+2023-09-07T19:56:50.221+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call validateRating
+2023-09-07T19:56:50.225+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call getAllRatings
+2023-09-07T19:56:50.231+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call validateRating
+2023-09-07T19:56:50.234+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call updateRating
+2023-09-07T19:56:50.237+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call deleteRating
+2023-09-07T19:56:50.240+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call addRating
+2023-09-07T19:56:50.243+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call convertOptionalToRating
+2023-09-07T19:56:50.247+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call validateRating
+2023-09-07T19:56:50.252+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call validateRating
+2023-09-07T19:56:50.256+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call convertOptionalToRating
+2023-09-07T19:56:50.259+02:00  INFO 16140 --- [main] c.nnk.springboot.service.RatingService   : call validateRating
+2023-09-07T19:56:50.325+02:00  INFO 16140 --- [main] c.n.springboot.service.RuleNameService   : call convertOptionalToRule
+2023-09-07T19:56:50.328+02:00  INFO 16140 --- [main] c.n.springboot.service.RuleNameService   : call getAllRule
+2023-09-07T19:56:50.331+02:00  INFO 16140 --- [main] c.n.springboot.service.RuleNameService   : call addRuleName
+2023-09-07T19:56:50.335+02:00  INFO 16140 --- [main] c.n.springboot.service.RuleNameService   : call getRuleNameById
+2023-09-07T19:56:50.335+02:00  INFO 16140 --- [main] c.n.springboot.service.RuleNameService   : call convertOptionalToRule
+2023-09-07T19:56:50.346+02:00  INFO 16140 --- [main] c.n.springboot.service.RuleNameService   : call updateRuleName
+2023-09-07T19:56:50.352+02:00  INFO 16140 --- [main] c.n.springboot.service.RuleNameService   : call deleteRuleName
+2023-09-07T19:56:50.355+02:00  INFO 16140 --- [main] c.n.springboot.service.RuleNameService   : call convertOptionalToRule
+2023-09-07T19:56:50.412+02:00  INFO 16140 --- [main] c.nnk.springboot.service.TradeService    : call deleteTrade
+2023-09-07T19:56:50.415+02:00  INFO 16140 --- [main] c.nnk.springboot.service.TradeService    : call updateTrade
+2023-09-07T19:56:50.418+02:00  INFO 16140 --- [main] c.nnk.springboot.service.TradeService    : call addTrade
+2023-09-07T19:56:50.421+02:00  INFO 16140 --- [main] c.nnk.springboot.service.TradeService    : call getAllRule
+2023-09-07T19:56:50.424+02:00  INFO 16140 --- [main] c.nnk.springboot.service.TradeService    : call convertOptionalToTrade
+2023-09-07T19:56:50.427+02:00  INFO 16140 --- [main] c.nnk.springboot.service.TradeService    : call convertOptionalToTrade
+2023-09-07T19:56:50.431+02:00  INFO 16140 --- [main] c.nnk.springboot.service.TradeService    : call getTradeById
+2023-09-07T19:56:50.431+02:00  INFO 16140 --- [main] c.nnk.springboot.service.TradeService    : call convertOptionalToTrade
+2023-09-07T19:56:50.436+02:00  INFO 16140 --- [main] com.nnk.springboot.service.UserService   : call validatePasswordUser
+2023-09-07T19:56:50.439+02:00  INFO 16140 --- [main] com.nnk.springboot.service.UserService   : call validatePasswordUser
+2023-09-07T19:56:50.441+02:00  INFO 16140 --- [main] com.nnk.springboot.service.UserService   : call validatePasswordUser
+2023-09-07T19:56:50.445+02:00  INFO 16140 --- [main] com.nnk.springboot.service.UserService   : call validatePasswordUser
+2023-09-07T19:56:50.447+02:00  INFO 16140 --- [main] com.nnk.springboot.service.UserService   : call validatePasswordUser
+2023-09-07T19:56:50.455+02:00  INFO 16140 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.nnk.springboot.TradeTests]: TradeTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-09-07T19:56:50.460+02:00  INFO 16140 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.nnk.springboot.Application for test class com.nnk.springboot.TradeTests
+2023-09-07T19:56:50.552+02:00  INFO 16140 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-09-07T19:56:50.742+02:00  INFO 16140 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-09-07T19:56:50.759+02:00  INFO 16140 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-09-07T19:56:50.766+02:00  INFO 16140 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-09-07T19:56:50.767+02:00  INFO 16140 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2023-09-07T19:56:50.775+02:00  INFO 16140 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.

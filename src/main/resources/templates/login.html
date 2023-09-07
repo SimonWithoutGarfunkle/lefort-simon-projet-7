@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Login</title>
+<link rel="stylesheet" href="../css/login.css" >
+
+</head>
+<body>
+<div class="login-container"><h3>Login with Username and Password</h3>
+				<form th:action="@{/login}" method="post">
+					<div class="login-item">
+						<label for="username">User:</label> <input type="text" id="username"
+							name="username" placeholder="username" required>
+					</div>
+					<div class="login-item">
+						<label for="password">Password:</label> <input
+							type="password" id="password" name="password"
+							placeholder="password" required>
+					</div>
+					<div>
+						<button type="submit">Login</button>
+						<span th:if="${error}" class="error-message"
+							th:text="${errorMessage}"></span>
+					</div>
+				</form>
+</div>
+<div>
+<img class="bottom-right-image" th:src="@{/poseidon.png}" alt="Logo of Poseidon Capital Solutions">
+</div>
+</body>
+</html>

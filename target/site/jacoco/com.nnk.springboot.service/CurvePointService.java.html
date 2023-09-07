@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CurvePointService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">spring-boot-skeleton</a> &gt; <a href="index.source.html" class="el_package">com.nnk.springboot.service</a> &gt; <span class="el_source">CurvePointService.java</span></div><h1>CurvePointService.java</h1><pre class="source lang-java linenums">package com.nnk.springboot.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.nnk.springboot.domain.CurvePoint;
+import com.nnk.springboot.repositories.CurvePointRepository;
+
+/**
+ * Implementation the CRUD for the CurvePoint Entity
+ * 
+ * @author Simon
+ *
+ */
+@Service
+<span class="fc" id="L21">public class CurvePointService {</span>
+	
+	@Autowired
+	private CurvePointRepository curvePointRepository;
+	
+<span class="fc" id="L26">	private static Logger logger = LoggerFactory.getLogger(CurvePointService.class);</span>
+	
+	/**
+	 * Extract all CurvePoint from the Database
+	 * 
+	 * @return List of all CurvePoints from the Databse
+	 */
+	public List&lt;CurvePoint&gt; getAllCurvePoints() {
+<span class="fc" id="L34">		logger.info(&quot;call getAllRule&quot;);</span>
+<span class="fc" id="L35">		return curvePointRepository.findAll();</span>
+	}
+
+	
+	/**
+	 * Convert Optional CurvePoint to CurvePoint
+	 * 
+	 * @param option to convert
+	 * @return CurvePoint or null
+	 */
+	public CurvePoint convertOptionalToCurvePoint(Optional&lt;CurvePoint&gt; option) {
+<span class="fc" id="L46">		logger.info(&quot;call convertOptionalToCurvePoint&quot;);</span>
+<span class="fc" id="L47">		return option.orElse(null);</span>
+		
+	}
+
+	
+	/**
+	 * Extract the CurvePoint corresponding to the Id from DB
+	 * 
+	 * @param id of the CurvePoint
+	 * @return CurvePoint
+	 */
+	public CurvePoint getCurvePointById(Integer id) {
+<span class="fc" id="L59">		logger.info(&quot;call getCurvePointById&quot;);		</span>
+<span class="fc" id="L60">		return convertOptionalToCurvePoint(curvePointRepository.findById(id));		</span>
+	}
+	
+	/**
+	 * Add CurvePoint to DB
+	 * 
+	 * @param curvePoint to add
+	 * @return saved curvePoint
+	 */
+	public CurvePoint addCurvePoint(CurvePoint curvePoint) {
+<span class="fc" id="L70">		logger.info(&quot;call addCurvePoint&quot;);	</span>
+<span class="fc" id="L71">		return curvePointRepository.save(curvePoint);</span>
+	}
+	
+	
+	/**
+	 * Update an existing CurvePoint
+	 * 
+	 * @param curvePoint to update
+	 * @return updated CurvePoint
+	 */
+	public CurvePoint updateCurvePoint(CurvePoint curvePoint) {
+<span class="fc" id="L82">		logger.info(&quot;call updateCurvePoint&quot;);	</span>
+<span class="fc" id="L83">		return curvePointRepository.save(curvePoint);</span>
+	}
+	
+	/**
+	 * Delete the CurvePoint corresponding to the id
+	 * 
+	 * @param id of the CurvePoint to delete
+	 */
+	public void deleteCurvePoint(Integer id) {
+<span class="fc" id="L92">		logger.info(&quot;call deleteCurvePoint&quot;);	</span>
+<span class="fc" id="L93">		curvePointRepository.deleteById(id);		</span>
+<span class="fc" id="L94">	}</span>
+		
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

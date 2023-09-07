@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TradeController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">spring-boot-skeleton</a> &gt; <a href="index.source.html" class="el_package">com.nnk.springboot.controllers</a> &gt; <span class="el_source">TradeController.java</span></div><h1>TradeController.java</h1><pre class="source lang-java linenums">package com.nnk.springboot.controllers;
+
+import com.nnk.springboot.domain.Trade;
+import com.nnk.springboot.service.TradeService;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import jakarta.validation.Valid;
+
+@Controller
+<span class="fc" id="L22">public class TradeController {</span>
+    @Autowired
+    private TradeService tradeService;
+
+    @RequestMapping(&quot;/trade/list&quot;)
+    public String home(Model model)
+    {
+<span class="fc" id="L29">    	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();</span>
+<span class="fc" id="L30">        String remoteUser = authentication.getName();</span>
+<span class="fc" id="L31">        model.addAttribute(&quot;remoteUser&quot;, remoteUser);</span>
+        
+<span class="fc" id="L33">        List&lt;Trade&gt; curves = tradeService.getAllTrades();</span>
+<span class="fc" id="L34">        model.addAttribute(&quot;trades&quot;, curves);</span>
+<span class="fc" id="L35">        return &quot;trade/list&quot;;</span>
+    }
+
+    @GetMapping(&quot;/trade/add&quot;)
+    public String addTrade(Trade bid) {
+<span class="fc" id="L40">        return &quot;trade/add&quot;;</span>
+    }
+
+    @PostMapping(&quot;/trade/validate&quot;)
+    public String validate(@Valid Trade trade, BindingResult result, Model model) {
+<span class="fc" id="L45">    	tradeService.addTrade(trade);</span>
+<span class="fc" id="L46">        return &quot;redirect:/trade/list&quot;;</span>
+    }
+
+    @GetMapping(&quot;/trade/update/{id}&quot;)
+    public String showUpdateForm(@PathVariable(&quot;id&quot;) Integer id, Model model) {
+<span class="fc" id="L51">    	Trade tradeToUpdate = tradeService.getTradeById(id);</span>
+<span class="fc" id="L52">        model.addAttribute(&quot;trade&quot;, tradeToUpdate);</span>
+<span class="fc" id="L53">        return &quot;trade/update&quot;;</span>
+    }
+
+    @PostMapping(&quot;/trade/update/{id}&quot;)
+    public String updateTrade(@PathVariable(&quot;id&quot;) Integer id, @Valid Trade trade,
+                             BindingResult result, Model model) {
+<span class="fc" id="L59">    	tradeService.updateTrade(trade);</span>
+<span class="fc" id="L60">        return &quot;redirect:/trade/list&quot;;</span>
+    }
+
+    @GetMapping(&quot;/trade/delete/{id}&quot;)
+    public String deleteTrade(@PathVariable(&quot;id&quot;) Integer id, Model model) {
+<span class="fc" id="L65">    	tradeService.deleteTrade(id);</span>
+<span class="fc" id="L66">        return &quot;redirect:/trade/list&quot;;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">spring-boot-skeleton</a> &gt; <a href="index.source.html" class="el_package">com.nnk.springboot.service</a> &gt; <span class="el_source">UserService.java</span></div><h1>UserService.java</h1><pre class="source lang-java linenums">package com.nnk.springboot.service;
+
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.nnk.springboot.domain.User;
+import com.nnk.springboot.exceptions.UserException;
+import com.nnk.springboot.repositories.UserRepository;
+/**
+ * Implement the validation service for User
+ * 
+ * @author Simon
+ *
+ */
+@Service
+<span class="fc" id="L20">public class UserService {</span>
+	
+	@Autowired
+	private UserRepository userRepository;
+	
+<span class="fc" id="L25">	private static Logger logger = LoggerFactory.getLogger(UserService.class);</span>
+	
+	/**
+	 * A valid password must containt at least 8 characters with at least : 1 uppercase letter, 1 digit and 1 special characters
+	 * 
+	 * @param user to test
+	 */
+	public void validatePasswordUser(User user) {
+<span class="fc" id="L33">		logger.info(&quot;call validatePasswordUser&quot;);</span>
+		
+<span class="fc bfc" id="L35" title="All 2 branches covered.">		if (user.getPassword().length() &lt; 8) {</span>
+<span class="fc" id="L36">	        throw new UserException(&quot;Password must contain at least 8 characters&quot;);</span>
+	    }
+		
+<span class="fc bfc" id="L39" title="All 2 branches covered.">		if (!user.getPassword().matches(&quot;.*[A-Z].*&quot;)) {</span>
+<span class="fc" id="L40">	        throw new UserException(&quot;Password must contain at least 1 uppercase letter&quot;);</span>
+	    }
+
+<span class="fc bfc" id="L43" title="All 2 branches covered.">	    if (!user.getPassword().matches(&quot;.*\\d.*&quot;)) {</span>
+<span class="fc" id="L44">	        throw new UserException(&quot;Password must contain at least 1 digit&quot;);</span>
+	    }
+
+<span class="fc bfc" id="L47" title="All 2 branches covered.">	    if (!user.getPassword().matches(&quot;.*[!@#$%^&amp;*()\\-_=+&lt;&gt;?,;].*&quot;)) {</span>
+<span class="fc" id="L48">	        throw new UserException(&quot;Password must contain at least 1 special character&quot;);</span>
+	    }
+		
+		
+<span class="fc" id="L52">	}</span>
+	
+	/**
+	 * Verify that the username of a new username is not already registered
+	 * 
+	 * @param user to verify
+	 */
+	public void validateNewUserName(User user) {
+<span class="fc" id="L60">		logger.info(&quot;call validateNewUserName&quot;);</span>
+<span class="fc" id="L61">		List&lt;User&gt; users = userRepository.findAll();</span>
+<span class="fc bfc" id="L62" title="All 2 branches covered.">		for (User userInBase:users) {</span>
+<span class="pc bpc" id="L63" title="1 of 2 branches missed.">			if (userInBase.getUsername().equals(user.getUsername())) {</span>
+<span class="nc" id="L64">				throw new UserException(&quot;Username already exists&quot;);</span>
+			}
+<span class="fc" id="L66">		}</span>
+		
+<span class="fc" id="L68">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

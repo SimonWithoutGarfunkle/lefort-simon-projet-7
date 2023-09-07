@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RatingService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">spring-boot-skeleton</a> &gt; <a href="index.source.html" class="el_package">com.nnk.springboot.service</a> &gt; <span class="el_source">RatingService.java</span></div><h1>RatingService.java</h1><pre class="source lang-java linenums">package com.nnk.springboot.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.nnk.springboot.domain.Rating;
+import com.nnk.springboot.exceptions.RatingException;
+import com.nnk.springboot.repositories.RatingRepository;
+
+/**
+ * Implementation the CRUD for the Rating Entity
+ * 
+ * @author Simon
+ *
+ */
+@Service
+<span class="fc" id="L22">public class RatingService {</span>
+	
+	@Autowired
+	private RatingRepository ratingRepository;
+	
+<span class="fc" id="L27">	private static Logger logger = LoggerFactory.getLogger(RatingService.class);</span>
+	
+	/**
+	 * Extract all Ratings from the DataBase
+	 * 
+	 * @return List of all ratings from the DataBase
+	 */
+	public List&lt;Rating&gt; getAllRatings() {
+<span class="fc" id="L35">		logger.info(&quot;call getAllRatings&quot;);</span>
+<span class="fc" id="L36">		return ratingRepository.findAll();</span>
+	}
+	
+	/**
+	 * Convert Optional Rating to Rating
+	 * 
+	 * @param option to test
+	 * @return Rating or null
+	 */
+	public Rating convertOptionalToRating(Optional&lt;Rating&gt; option) {
+<span class="fc" id="L46">		logger.info(&quot;call convertOptionalToRating&quot;);</span>
+<span class="fc" id="L47">		return option.orElse(null);		</span>
+	}
+	
+	/**
+	 * Extract the rating corresponding to the Id from DB
+	 * 
+	 * @param id of the Rating
+	 * @return Rating
+	 */
+	public Rating getRatingById(Integer id) {
+<span class="fc" id="L57">		logger.info(&quot;call getRatingById&quot;);		</span>
+<span class="fc" id="L58">		return convertOptionalToRating(ratingRepository.findById(id));</span>
+	}
+	
+	/**
+	 * Add rating to DB
+	 * 
+	 * @param rating to add
+	 * @return saved rating
+	 */
+	public Rating addRating(Rating rating) {
+<span class="fc" id="L68">		logger.info(&quot;call addRating&quot;);	</span>
+<span class="fc" id="L69">		return ratingRepository.save(rating);</span>
+	}
+	
+	
+	/**
+	 * Update an existing rating
+	 * 
+	 * @param rating to update
+	 * @return updated rating
+	 */
+	public Rating updateRating(Rating rating) {
+<span class="fc" id="L80">		logger.info(&quot;call updateRating&quot;);	</span>
+<span class="fc" id="L81">		return ratingRepository.save(rating);</span>
+	}
+	
+	/**
+	 * Delete the rating corresponding to the id
+	 * 
+	 * @param id of the rating to delete
+	 */
+	public void deleteRating(Integer id) {
+<span class="fc" id="L90">		logger.info(&quot;call deleteRating&quot;);	</span>
+<span class="fc" id="L91">		ratingRepository.deleteById(id);</span>
+		
+<span class="fc" id="L93">	}</span>
+	
+	/**
+	 * Call the data validation method for every attribute of the rating
+	 * 
+	 * @param rating to validate
+	 */
+	public void validateRating(Rating rating) {
+<span class="fc" id="L101">		logger.info(&quot;call validateRating&quot;);</span>
+<span class="fc" id="L102">		validateIntegerInRange(rating.getMoodysRating(), &quot;Moody Rating&quot;, 0, 10);</span>
+<span class="fc" id="L103">        validateIntegerInRange(rating.getSandPRating(), &quot;S&amp;P Rating&quot;, 0, 10);</span>
+<span class="fc" id="L104">        validateIntegerInRange(rating.getFitchRating(), &quot;Fitch Rating&quot;, 0, 10);</span>
+<span class="fc" id="L105">        validateIntegerInRange(rating.getOrderNumber(), &quot;Order Number&quot;, 0, 1000);</span>
+<span class="fc" id="L106">    }</span>
+
+    /**
+     * Check the data validity
+     * 
+     * @param value to test
+     * @param fieldName to test
+     * @param min integer value accepted
+     * @param max integer value accepted
+     */
+	private void validateIntegerInRange(Integer value, String fieldName, int min, int max) {
+<span class="pc bpc" id="L117" title="1 of 6 branches missed.">        if (value == null || value &lt; min || value &gt; max) {</span>
+<span class="fc" id="L118">            throw new RatingException(fieldName + &quot; must be an integer between &quot; + min + &quot; and &quot; + max + &quot;.&quot;);</span>
+        }
+<span class="fc" id="L120">    }</span>
+
+	
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
